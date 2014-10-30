@@ -23,10 +23,12 @@ Please do not push backend code to repository without running maven successfully
 
 * Install tomcat version 7.0 from apache website.
 * Add the following tag under context.xml (the master is under <Tomcat folder>/conf/context.xml but if you run in eclipse you should be able to override it in the eclipse server folder):
+```xml
    	<Resource name="jdbc/DefaultDB" auth="Container"
           type="javax.sql.DataSource" driverClassName="org.apache.derby.jdbc.EmbeddedDriver"
           url="jdbc:derby:memory:DemoDB;create=true"
           username="demo" password="demo" maxActive="20" maxIdle="10" maxWait="-1"/>
+```
     This means that your server will run with in-memory DB.
 
 ### Eclipse
