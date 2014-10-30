@@ -29,7 +29,7 @@ Please do not push backend code to repository without running maven successfully
           url="jdbc:derby:memory:DemoDB;create=true"
           username="demo" password="demo" maxActive="20" maxIdle="10" maxWait="-1"/>
 ```
-    This means that your server will run with in-memory DB.
+This means that your server will run with in-memory DB.
 
 ### Eclipse
 
