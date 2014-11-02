@@ -1,5 +1,9 @@
 sap.ui.jsview("questions.als", {
 
+    getControllerName: function() {
+        return "questions.als";
+    },
+
     createContent: function(){
         var nav = new sap.m.NavContainer();
 
