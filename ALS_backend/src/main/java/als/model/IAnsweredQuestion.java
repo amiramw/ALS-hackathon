@@ -1,6 +1,6 @@
 package als.model;
 
-public interface AnsweredQuestion {
+public interface IAnsweredQuestion {
 
 	int getQuestionId();
 

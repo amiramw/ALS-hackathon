@@ -1,6 +1,6 @@
 package als.model;
 
-public interface Patient {
+public interface IPatient {
 
 	String getEmail();
 
