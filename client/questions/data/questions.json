@@ -1,0 +1,16 @@
+{
+    "questions" : [
+        {
+            "id" : "11",
+            "title" : "Orthopnea",
+            "answers": [
+                "None", "Some difficulty sleeping at night due to shortness of breath. Does not routinely use more than two pillows", "Needs extra pillow in order to sleep (more than two)",
+                "Can only sleep sitting up", "Unable to sleep"
+            ]
+        },
+        {
+            "id" : "13",
+            "title": "How many years since onset of symptoms?"
+        }
+    ]
+}
