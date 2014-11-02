@@ -27,7 +27,7 @@ sap.ui.jsview("questions.als", {
                 var index = parseInt(oContext.getPath().replace("/questions/",""), 10);
                 var nextIndex = 0;
 
-                if (index + 1 <= questions.length) {
+                if (index + 1 < questions.length) {
                     nextIndex = index + 1;
                 }
 
