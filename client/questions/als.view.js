@@ -16,6 +16,10 @@ sap.ui.jsview("questions.als", {
         nav.addPage(page2);
 
         return nav;
+    },
+
+    onAfterRendering: function(){
+        console.log(this.getModel());
     }
 
 });
