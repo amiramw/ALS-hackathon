@@ -34,7 +34,8 @@ This means that your server will run with in-memory DB.
 ### Eclipse
 
 * Install eclipse luna JEE
-* Install plugin Maven - http://download.eclipse.org/technology/m2e/releases
+* Install (if needed) the JPA modeler from your luna site (http://download.eclipse.org/releases/luna)
+* Install (if needed) plugin Maven - http://download.eclipse.org/technology/m2e/releases
 * The backend project is ALS_backend
 * To run: right click on the project -> Run As -> Run on Server. Then define new Tomcat that is linked to your Tomcat 7.0 installation.
 * The following request should works: GET http://localhost:8080/ALS_backend/als.svc
