@@ -1,3 +1,11 @@
-var navigator = new sap.m.NavContainer();
+var nav = new sap.m.NavContainer();
+
 var page1 = new sap.m.Page();
-x.addPage(page1);
+page1.addContent(new sap.m.Button({text:"button1"}));
+nav.addPage(page1);
+
+var page2 = new sap.m.Page();
+page2.addContent(new sap.m.Button({text:"button2"}));
+nav.addPage(page2);
+
+nav.placeAt('content');
