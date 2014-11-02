@@ -1,21 +1,25 @@
 sap.ui.jsview("questions.als", {
 
+    nav: null,
+
     getControllerName: function() {
         return "questions.als";
     },
 
     createContent: function(){
-        var nav = new sap.m.NavContainer();
+        this.nav = new sap.m.NavContainer();
 
-        var page1 = new sap.m.Page();
-        page1.addContent(new sap.m.Button({text:"button1"}));
-        nav.addPage(page1);
+        var page1 = new sap.m.Page("page_1");
+        page1.addContent(new sap.m.Button({text:"Next", press: function(){
+            this.nav.to("page_2");
+        }.bind(this)}));
+        this.nav.addPage(page1);
 
-        var page2 = new sap.m.Page();
-        page2.addContent(new sap.m.Button({text:"button2"}));
-        nav.addPage(page2);
+        var page2 = new sap.m.Page("page_2");
+        page2.addContent(new sap.m.Button({text:"Next"}));
+        this.nav.addPage(page2);
 
-        return nav;
+        return this.nav;
     }
 
 });
