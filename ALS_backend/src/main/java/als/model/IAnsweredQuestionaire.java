@@ -9,6 +9,6 @@ public interface IAnsweredQuestionaire {
 
 	Date getSubmissionTime();
 
-	List<IAnsweredQuestion> getAnsweredQuestions();
+	List<? extends IAnsweredQuestion> getAnsweredQuestions();
 
 }
