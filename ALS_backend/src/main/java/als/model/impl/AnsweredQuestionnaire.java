@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import als.model.IAnsweredQuestionaire;
+import als.model.IAnsweredQuestionnaire;
 
-public class AnsweredQuestionaire implements IAnsweredQuestionaire {
+public class AnsweredQuestionnaire implements IAnsweredQuestionnaire {
 
 	String _email;
 	Date _time = new Date();
@@ -15,6 +15,10 @@ public class AnsweredQuestionaire implements IAnsweredQuestionaire {
 	@Override
 	public String getPatientEmail() {
 		return _email;
+	}
+
+	public void setAnsweredQuestions(ArrayList<AnsweredQuestion> _questions) {
+		this._questions = _questions;
 	}
 
 	public void setPatientEmail(String v) {
