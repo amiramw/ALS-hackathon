@@ -90,7 +90,8 @@ sap.ui.jsview("view.login", {
             width: '80px',
             enabled: false,
             press: function(event) {
-                that.app.to("weeklyTasksPage");
+                var controller = sap.ui.controller(that.getControllerName());
+                controller.onLogin();
             }
         }).addStyleClass('centered');
 

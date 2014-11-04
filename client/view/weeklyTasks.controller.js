@@ -5,8 +5,10 @@ sap.ui.controller("view.weeklyTasks", {
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 * @memberOf view.weeklyTasks
 */
+
 	onInit: function() {
-        //The data for the list
+    this.app = sap.ui.getCore().byId("alsApp");
+    //The data for the list
         var aData = { modelData : [
 
               {iconTaskSource:"sap-icon://task", taskName: "Questionnaire" , dateStatus: "Last:", date : "01/01/2010" , iconStatusSource: "sap-icon://accept"},
@@ -20,6 +22,12 @@ sap.ui.controller("view.weeklyTasks", {
           //set the model
           var oModel = new sap.ui.model.json.JSONModel(aData);
           this.getView().setModel(oModel);
+    },
+
+    onPress : function(){
+         debugger;
+        this.app.to("questionsPage");
+
     }
 
 /**

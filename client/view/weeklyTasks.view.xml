@@ -8,7 +8,7 @@
             <!-- The Title label-->
             <Label text="Weekly Tasks" textAlign="Center" width="100%" class="subtitle"/>
             <!-- The List: The items in the list are bounded to the modelData defined in the controller-->
-            <List items="{/modelData}">
+            <List itemPress="onPress" items="{/modelData}">
                 <!-- first row-->
                 <CustomListItem type="Navigation">
                     <sap.ui.core:Icon
