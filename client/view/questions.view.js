@@ -1,9 +1,9 @@
-sap.ui.jsview("questions.als", {
+sap.ui.jsview("view.questions", {
 
     nav: null,
 
     getControllerName: function() {
-        return "questions.als";
+        return "view.questions";
     },
 
     createContent: function(){
