@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+
+
+    <script src='https://openui5.hana.ondemand.com/resources/sap-ui-core.js'
+            id="sap-ui-bootstrap"
+            data-sap-ui-libs="sap.m"
+            data-sap-ui-resourceroots='{"client": "./"}'
+
+            data-sap-ui-theme="sap_bluecrystal">
+    </script>
+    <!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+
+    <script>
+        sap.ui.localResources("view");
+
+        var app = new sap.m.App("theApp",{initialPage:"idTasks"});
+
+        var weeklyTasksPage = sap.ui.view({id:"idTasks", viewName:"view.weeklyTasks", type:sap.ui.core.mvc.ViewType.XML});
+
+        app.addPage(weeklyTasksPage);
+
+        app.placeAt("content");
+    </script>
+
+</head>
+<body class="sapUiBody" role="application">
+<div id="content"></div>
+</body>
+</html>
+
