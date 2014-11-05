@@ -12,7 +12,7 @@ sap.ui.jsview("view.login", {
         return "view.login";
     },
 
-    createContent: function(){
+    createContent: function(controller){
         var that = this;
 
         var logo = new sap.ui.core.Icon('logo', {
@@ -89,10 +89,7 @@ sap.ui.jsview("view.login", {
             text: 'Login',
             width: '80px',
             enabled: false,
-            press: function(event) {
-                var controller = sap.ui.controller(that.getControllerName());
-                controller.onLogin();
-            }
+            press: controller.onLogin
         }).addStyleClass('centered');
 
         var layout = new sap.ui.layout.VerticalLayout('layout', {
