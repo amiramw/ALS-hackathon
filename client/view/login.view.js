@@ -45,7 +45,7 @@ sap.ui.jsview("view.login", {
             liveChange: function(event) {
                 that.username = event.getSource().getValue();
                 localStorage.setItem('alsUsername', that.username);
-                that.inputChanged();
+                that.setLoginButton();
             }
         });
 
@@ -57,7 +57,7 @@ sap.ui.jsview("view.login", {
             liveChange: function(event) {
                 that.email = event.getSource().getValue();
                 localStorage.setItem('alsEmail', that.email);
-                that.inputChanged();
+                that.setLoginButton();
             }
         });
 
@@ -73,7 +73,7 @@ sap.ui.jsview("view.login", {
             liveChange: function(event) {
                 that.years = event.getSource().getValue();
                 localStorage.setItem('alsYears', that.years);
-                that.inputChanged();
+                that.setLoginButton();
             }
         });
 
