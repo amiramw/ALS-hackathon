@@ -24,10 +24,12 @@ sap.ui.controller("view.weeklyTasks", {
           this.getView().setModel(oModel);
     },
 
-    onPress : function(){
-         debugger;
-        this.app.to("questionsPage");
-
+    onPress : function(event){
+        var src = event.getSource();
+        var path = src.getBindingContextPath();
+        if(path==="/modelData/0"){
+            this.app.to("questionsPage");
+        }
     }
 
 /**

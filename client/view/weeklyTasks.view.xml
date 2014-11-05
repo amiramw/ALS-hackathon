@@ -8,9 +8,9 @@
             <!-- The Title label-->
             <Label text="Weekly Tasks" textAlign="Center" width="100%" class="subtitle"/>
             <!-- The List: The items in the list are bounded to the modelData defined in the controller-->
-            <List itemPress="onPress" items="{/modelData}">
+            <List items="{/modelData}">
                 <!-- first row-->
-                <CustomListItem type="Navigation">
+                <CustomListItem type="Navigation" press="onPress">
                     <sap.ui.core:Icon
                             src="{iconTaskSource}"
                             size="1.5em"
@@ -24,7 +24,7 @@
                             class="statusIcon"/>
                 </CustomListItem>
                 <!-- second row-->
-                <CustomListItem type="Navigation">
+                <CustomListItem type="Navigation" press="onPress">
                     <sap.ui.core:Icon
                             src="{iconTaskSource}"
                             size="1.5em"
@@ -38,7 +38,7 @@
                             class="statusIcon"/>
                 </CustomListItem>
                 <!-- third row-->
-                <CustomListItem type="Navigation">
+                <CustomListItem type="Navigation" press="onPress">
                     <sap.ui.core:Icon
                             src="{iconTaskSource}"
                             size="1.5em"
@@ -52,7 +52,7 @@
                             class="statusIcon"/>
                 </CustomListItem>
                 <!-- forth row-->
-                <CustomListItem type="Navigation">
+                <CustomListItem type="Navigation" press="onPress">
                     <sap.ui.core:Icon
                             src="{iconTaskSource}"
                             size="1.5em"
@@ -66,7 +66,7 @@
                             class="statusIcon"/>
                 </CustomListItem>
                 <!-- fifth row-->
-                <CustomListItem type="Navigation">
+                <CustomListItem type="Navigation" press="onPress">
                     <sap.ui.core:Icon
                             src="{iconTaskSource}"
                             size="1.5em"
