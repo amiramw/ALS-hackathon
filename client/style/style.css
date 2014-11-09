@@ -51,7 +51,7 @@ textarea:-ms-input-placeholder {
     color: #BBBBBB !important;
 }
 
-.sapMLabel, .sapMText {
+.sapMLabel, .sapMText, .sapMButton {
     font-family: SegoeUI;
     text-shadow: none;
 }
@@ -140,7 +140,7 @@ textarea:-ms-input-placeholder {
     border: none;
 }
 
-#loginPage .centeredLayout {
+#loginPage,#submissionAlertPage .centeredLayout {
     display: table;
     margin-left: auto;
     margin-right: auto;
@@ -256,3 +256,68 @@ textarea:-ms-input-placeholder {
 .question-view {
     height: 100%;
 }
+
+/*********** Submission Alert page *****/
+
+
+#submissionAlertPage .sapMLabel {
+    color: black;
+    font-size: 2.5em;
+    font-family: SegoeUI;
+    font-weight: normal;
+}
+
+#submissionAlertPage #timeLabel {
+    color: black;
+    font-size: 1em;
+    font-family: SegoeUI;
+    font-weight: normal;
+}
+#submissionAlertPage #orLabel {
+    color: white;
+    font-size: 1.5em;
+    font-family: SegoeUI;
+    font-weight: normal;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#submissionAlertPage #startAgainLnk {
+    color: white;
+    font-size: 1.5em;
+    font-family: SegoeUI;
+    font-weight: 100;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#submissionAlertPage .sapMBtnContent {
+    color: #34DEEA;
+    font-size: 1.5em;
+    font-family: SegoeUI;
+    font-weight: 100;
+}
+#submissionAlertPage .sapMBtn {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+#submissionAlertPage .whiteCenteredLayout{
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding-top: 2em;
+}
+
+#submissionAlertPage .blueCenteredLayout{
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #34DEEA;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
