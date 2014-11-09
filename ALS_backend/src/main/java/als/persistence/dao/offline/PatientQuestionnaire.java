@@ -5,6 +5,7 @@ package als.persistence.dao.offline;
  *
  */
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import als.model.impl.AbstractQuestionnaire;
@@ -37,6 +38,16 @@ class PatientQuestionnaire extends BaseCon implements IPatientQuestionnaireDAO{
 	@Override
 	public void delete(String email, Integer date) {
 		
+	}
+
+	@Override
+	public Timestamp getLastSubmitedQuestionnaire(Integer id) {
+		return null;
+	}
+
+	@Override
+	public Timestamp getLastSubmitedQuestionnaire(String email) {
+		return null;
 	}
 
 }

@@ -1,0 +1,104 @@
+{
+    "questions" : [
+        {
+            "id" : "1",
+            "title" : "Speech",
+            "answers": [
+                "Normal speech processes", "Detectable speech disturbance", "Intelligible with repeating",
+                "Speech combined with nonvocal communication", "Loss of useful speech"
+            ]
+        },
+        {
+            "id" : "2",
+            "title" : "Salivation",
+            "answers": [
+                "Normal", "Slight but definite excess of saliva in mouth; may have nighttime drooling", "Moderately excessive saliva; may have minimal drooling",
+                "Marked excess of saliva with some drooling", "Marked drooling; requires constant tissue or handkerchief"
+            ]
+        },
+        {
+            "id" : "3",
+            "title" : "Swallowing",
+            "answers": [
+                "Normal eating habits", "Early eating problems-occasional choking", "Dietary consistency changes",
+                "Needs supplemental tube feeding", "NPO (exclusively parenteral or enteral feeding)"
+            ]
+        },
+        {
+            "id" : "4",
+            "title" : "Handwriting",
+            "answers": [
+                "Normal", "Slow or sloppy; all words are legible", "Not all words are legible",
+                "Able to grip pen but unable to write", "Unable to grip pen"
+            ]
+        },
+        {
+            "id" : "5",
+            "title" : "Cutting food with gastrostomy",
+            "answers": [
+                "Normal", "Somewhat slow and clumsy, but no help needed", "Can cut most foods, although clumsy and slow; some help needed",
+                "Food must be cut by someone, but can still feed slowly", "Needs to be fed"
+            ]
+        },
+        {
+            "id" : "6",
+            "title" : "Dressing and hygiene",
+            "answers": [
+                "Normal function", "Independent and complete self-care with effort or decreased efficiency", "Intermittent assistance or substitute methods",
+                "Needs attendant for self-care", "Total dependence"
+            ]
+        },
+        {
+            "id" : "7",
+            "title" : "Turning in bed",
+            "answers": [
+                "Normal", "Somewhat slow and clumsy, but no help needed", "Can turn alone or adjust sheets, but with great difficulty",
+                "Can initiate, but not turn or adjust sheets alone", "Helpless"
+            ]
+        },
+        {
+            "id" : "8",
+            "title" : "Walking",
+            "answers": [
+                "Normal", "Early ambulation difficulties", "Walks with assistance",
+                "Non-ambulatory functional movement only", "No purposeful leg movement"
+            ]
+        },
+        {
+            "id" : "9",
+            "title" : "Climbing stairs",
+            "answers": [
+                "Normal", "Slow", "Mild unsteadiness or fatigue",
+                "Needs assistance", "Cannot do"
+            ]
+        },
+        {
+            "id" : "10",
+            "title" : "Dyspnea",
+            "answers": [
+                "None", "Occurs when walking", "Occurs with one or more of the following: eating, bathing, dressing (ADL)",
+                "Occurs at rest, difficulty breathing when either sitting or lying", "Significant difficulty, considering using mechanical respiratory support"
+            ]
+        },
+        {
+            "id" : "11",
+            "title" : "Orthopnea",
+            "answers": [
+                "None", "Some difficulty sleeping at night due to shortness of breath. Does not routinely use more than two pillows", "Needs extra pillow in order to sleep (more than two)",
+                "Can only sleep sitting up", "Unable to sleep"
+            ]
+        },
+        {
+            "id" : "12",
+            "title" : "Respiratory insufficiency",
+            "answers": [
+                "None", "Intermittent use of BiPAP", "Continuous use of BiPAP",
+                "Continuous use of BiPAP during the night and day", "Invasive mechanical ventilation by intubation or tracheostomy"
+            ]
+        },
+        {
+            "id" : "13",
+            "title": "How many years since onset of symptoms?"
+        }
+    ]
+}
