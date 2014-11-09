@@ -30,7 +30,7 @@ sap.ui.jsfragment('FooterToolbar', {
 });
 
 var app = new sap.m.App("alsApp",{
-    initialPage:"questionsPage"
+    initialPage:"loginPage"
 });
 
 var loginPage = sap.ui.view({
@@ -53,6 +53,13 @@ var questionsPage = sap.ui.view({
     type:sap.ui.core.mvc.ViewType.JS
 }).addStyleClass("question-view");
 app.addPage(questionsPage);
+
+var submissionAlertPage = sap.ui.view({
+    id:"submissionAlertPage",
+    viewName:"view.submissionAlert",
+    type:sap.ui.core.mvc.ViewType.JS
+}).addStyleClass("question-view");
+app.addPage(submissionAlertPage);
 
 
 ////////Sensors////////////
