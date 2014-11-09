@@ -248,3 +248,18 @@ textarea:-ms-input-placeholder {
 .question-view {
     height: 100%;
 }
+
+#question_layout {
+    height: 100%;
+}
+
+#question_layout .sapUiVltCell.sapuiVltCell:nth-child(2){
+    height: 100%;
+}
+
+#question_footer {
+    width: 100%;
+    background-color: red;
+    position: absolute;
+    bottom: 3em;
+}
