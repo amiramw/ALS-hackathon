@@ -99,7 +99,7 @@ sap.ui.jsview("view.questions", {
         });
 
 
-        var header = sap.ui.jsfragment('HeaderToolbar', {
+        var header = sap.ui.jsfragment(this.getId(), 'HeaderToolbar', {
             title: 'Questionnaire',
             showHomeButton: true
         });

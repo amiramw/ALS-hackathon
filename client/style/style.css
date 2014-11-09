@@ -406,12 +406,9 @@ textarea:-ms-input-placeholder {
     left: 1em;
 }
 
-/********** Completed page **********/
 #completedPage {
     background-image: url('../images/BG.png');
 }
-
-
 
 #completedPage #ribbonIcon {
     margin-top: 10em;

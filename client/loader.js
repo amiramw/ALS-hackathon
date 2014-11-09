@@ -68,7 +68,6 @@ var speech = sap.ui.view({
 });
 app.addPage(speech);
 
-
 var writing1 = sap.ui.view({
     id:"writingPage",
     viewName:"view.writing",

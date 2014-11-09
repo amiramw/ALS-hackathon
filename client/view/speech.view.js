@@ -26,7 +26,7 @@ sap.ui.jsview("view.speech", {
 			contentRight : [homeBtn,title],
 		}).addStyleClass("white").placeAt("content");*/
 
-        var header = sap.ui.jsfragment('HeaderToolbar', {
+        var header = sap.ui.jsfragment(this.getId(), 'HeaderToolbar', {
             title: 'Speech',
             showHomeButton: true
         });
