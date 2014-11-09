@@ -149,16 +149,7 @@ sap.ui.jsview("view.login", {
             text: "Login",
             width: "100%",
             textAlign: 'Center'
-        }).attachBrowserEvent('click', function() {
-                if (that.email !== "" && that.email !== null && that.yearOfBirth !== null && that.yearOfBirth !== "" &&
-                    that.gender !== null && that.onsetMonth !== null && that.onsetYear !== null) {
-                    controller.onLogin();
-                }
-                else {
-                    sap.m.MessageBox.alert('Please fill in all the details before logging in');
-                }
-            }
-        );
+        }).attachBrowserEvent('click', controller.onLogin);
 
         var contentLayout = new sap.ui.layout.VerticalLayout('contentLayout', {
             content: [appLayout, detailsLayout, genderLayout, dateOfOnsetLayout],

@@ -61,12 +61,13 @@ var submissionAlertPage = sap.ui.view({
 }).addStyleClass("question-view");
 app.addPage(submissionAlertPage);
 
+/* !!! BREAKS RUNTIME ON ANDROID !!!
 var speech = sap.ui.view({
     id:"speechPage",
     viewName:"view.speech",
     type:sap.ui.core.mvc.ViewType.JS
 });
-app.addPage(speech);
+app.addPage(speech); */
 
 var writing1 = sap.ui.view({
     id:"writingPage",
@@ -97,4 +98,3 @@ var completedPage = sap.ui.view({
 app.addPage(completedPage);
 
 app.placeAt("content");
-

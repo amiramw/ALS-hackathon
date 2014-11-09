@@ -4,8 +4,7 @@
 sap.ui.controller("view.completed", {
 
     onInit: function() {
+        $('#yearOfBirthTextArea-inner').prop('android:inputType', 'number');
     }
-
-
 
 });
