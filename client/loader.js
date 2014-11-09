@@ -54,4 +54,22 @@ var questionsPage = sap.ui.view({
 }).addStyleClass("question-view");
 app.addPage(questionsPage);
 
+
+////////Sensors////////////
+var speech = sap.ui.view({
+    id:"speechPage",
+    viewName:"view.speech",
+    type:sap.ui.core.mvc.ViewType.JS
+});
+
+app.addPage(speech);
+
+
+var writing1 = sap.ui.view({
+    id:"writingPage",
+    viewName:"view.writing",
+    type:sap.ui.core.mvc.ViewType.JS
+});
+app.addPage(writing1);
+
 app.placeAt("content");
