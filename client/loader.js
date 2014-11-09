@@ -61,16 +61,12 @@ var submissionAlertPage = sap.ui.view({
 }).addStyleClass("question-view");
 app.addPage(submissionAlertPage);
 
-
-////////Sensors////////////
 var speech = sap.ui.view({
     id:"speechPage",
     viewName:"view.speech",
     type:sap.ui.core.mvc.ViewType.JS
 });
-
 app.addPage(speech);
-
 
 var writing1 = sap.ui.view({
     id:"writingPage",
