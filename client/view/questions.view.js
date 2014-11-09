@@ -33,9 +33,10 @@ sap.ui.jsview("view.questions", {
                 var box = new sap.m.VBox();
                 var headerLayout = new sap.ui.layout.HorizontalLayout({
                     content: [
-                        new sap.m.Label("",{"text":"{title}"})
+                        new sap.m.Label("",{"text":"{title}"}).addStyleClass("question_title"),
+                        new sap.m.Label({"text": (index + 1) + "/" + questions.length}).addStyleClass("page_num")
                     ]
-                });
+                }).addStyleClass('questions_header');
 
                 box.addItem(headerLayout);
 
@@ -49,11 +50,11 @@ sap.ui.jsview("view.questions", {
 
                 page.addContent(box);
 
-                var footer = new sap.ui.layout.HorizontalLayout("question_footer", {
+                var footer = new sap.ui.layout.HorizontalLayout({
                     content: [new sap.m.Button({text:"Next", press: function(){
                         that.nav.to("page_" + questions[nextIndex].id);
                     }}) ]
-                });
+                }).addStyleClass('footer').addStyleClass('question_footer');
 
                 page.addContent(footer);
                 return page;
