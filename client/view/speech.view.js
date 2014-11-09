@@ -40,7 +40,7 @@ sap.ui.jsview("view.speech", {
 
 
 		var micImg = new sap.ui.commons.Image("micImg");
-		micImg.setSrc("img/mic128.png");
+		micImg.setSrc("images/mic128.png");
 		micImg.addStyleClass("centered");
 		micImg.addStyleClass("size5");
 		micImg.attachPress(function(){
