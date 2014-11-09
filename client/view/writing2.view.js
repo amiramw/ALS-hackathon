@@ -1,11 +1,11 @@
-sap.ui.jsview("view.writing", {
+sap.ui.jsview("view.writing2", {
 
 	/** Specifies the Controller belonging to this View. 
 	* In the case that it is not implemented, or that "null" is returned, this View does not have a Controller.
 	* @memberOf view.writing
 	*/ 
 	getControllerName : function() {
-		return "view.writing";
+		return "view.writing2";
 	},
 	
 
@@ -45,7 +45,7 @@ sap.ui.jsview("view.writing", {
 
 		
 		var html1 = new sap.ui.core.HTML({
-            content:   "<canvas id='houseCanvas' width='750' height='750' " + "style=border:5px solid #cccccc;'>" +   "</canvas>"
+            content:   "<canvas id='smileyCanvas' width='750' height='750' " + "style=border:5px solid #cccccc;'>" +   "</canvas>"
     });     
   
 		
@@ -57,7 +57,7 @@ sap.ui.jsview("view.writing", {
 			showFooter:true,
 			navButtonTap : function() {
 				//that.getParent().back();
-				that.getParent().backToPage("weeklyTasksPage");
+				that.getParent().backToPage("writingPage");
 			},			
 			content: [
 					task,

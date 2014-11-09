@@ -2,7 +2,7 @@
 * @author : Ram Kulkarni (http://ramkulkarni.com)
 */
 
-RecordableDrawing = function (canvasId, withImage)
+RecordableDrawing = function (canvasId, imageSrc)
 {
 	var self = this;
 	this.canvas = null;
@@ -206,17 +206,17 @@ RecordableDrawing = function (canvasId, withImage)
 
 	this.addImage = function()
 	{
-		if (!withImage) return;
+		if (!imageSrc) return;
 		
-		make_base();
+		make_base(imageSrc);
 
-		function make_base()
+		function make_base(imageSrc)
 		{
 		  base_image = new Image();
-		  base_image.src = 'images/house2.png';
+		  base_image.src = imageSrc;
 
 		  base_image.onload = function(){
-			  self.ctx.drawImage(base_image, 120, 50);
+			  self.ctx.drawImage(base_image, 150, 70);
 			  
 		  }
 		}

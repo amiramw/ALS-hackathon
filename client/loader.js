@@ -68,6 +68,7 @@ var speech = sap.ui.view({
 });
 app.addPage(speech);
 
+
 var writing1 = sap.ui.view({
     id:"writingPage",
     viewName:"view.writing",
@@ -75,6 +76,19 @@ var writing1 = sap.ui.view({
 });
 app.addPage(writing1);
 
+var writing2 = sap.ui.view({
+    id:"writingPage2",
+    viewName:"view.writing2",
+    type:sap.ui.core.mvc.ViewType.JS
+});
+app.addPage(writing2);
+
+var writing3 = sap.ui.view({
+    id:"writingPage3",
+    viewName:"view.writing3",
+    type:sap.ui.core.mvc.ViewType.JS
+});
+app.addPage(writing3);
 
 var completedPage = sap.ui.view({
     id:"completedPage",

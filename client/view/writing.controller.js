@@ -5,11 +5,11 @@ sap.ui.controller("view.writing", {
 	 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 	 * @memberOf view.writing
 	 */
-	onInit: function() {
+/*	onInit: function() {
 
 
 
-	},
+	},*/
 
 	/**
 	 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
@@ -29,7 +29,7 @@ sap.ui.controller("view.writing", {
 	
 	onAfterRendering: function() {
 		
-		this.Drawing = new RecordableDrawing("houseCanvas", true);
+		this.Drawing = new RecordableDrawing("houseCanvas", "images/house2.png");
 		this.Drawing.startRecording();
 			
 		
@@ -45,7 +45,7 @@ sap.ui.controller("view.writing", {
 //	}
 	
 	
-onFinish: function (evt, controller){
+onNext: function (evt, controller){
 	
 	var serialized=null;
 	var drawing = controller.Drawing;
@@ -55,17 +55,17 @@ onFinish: function (evt, controller){
 	
 	if (serialized != null)
 	{
-		//TODO: send to server!
+		window.jsonHouse = "[{\"writingHouse\":" + serialized + "}]";
 		alert(serialized);
 	} else 
 	{
-		//nothing to send
+		window.jsonHouse = "";
 	}
 	
 
 	drawing.clearCanvas();	
 	drawing.startRecording();
-	
+	app.to("writingPage2");
 },
 
 onClear: function(evt, controller){

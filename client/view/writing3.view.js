@@ -1,11 +1,11 @@
-sap.ui.jsview("view.writing", {
+sap.ui.jsview("view.writing3", {
 
 	/** Specifies the Controller belonging to this View. 
 	* In the case that it is not implemented, or that "null" is returned, this View does not have a Controller.
 	* @memberOf view.writing
 	*/ 
 	getControllerName : function() {
-		return "view.writing";
+		return "view.writing3";
 	},
 	
 
@@ -27,25 +27,31 @@ sap.ui.jsview("view.writing", {
 		}).addStyleClass("white").placeAt("content");*/
 
 		var task = new sap.m.Label({
-			text: "Follow the shape using your finger or stylus",
+			text: "Write down the following sentence:",
 			textAlign: 'Center',
 			width: '100%'
 		});
 
+		var sentence = new sap.m.Label({
+			text: "'Hello John, how are you?'",
+			textAlign: 'Center',
+			width: '100%'
+		});
+		
 		var clearBtn = new sap.m.Button({text:"Clear"});
 		clearBtn.attachPress(oController, oController.onClear);
 
 
 		
 		
-		var nextBtn = new sap.m.Button({text:"Next"});
-		nextBtn.attachPress(oController, oController.onNext);
+		var finishBtn = new sap.m.Button({text:"Finish"});
+		finishBtn.attachPress(oController, oController.onFinish);
 
 
 
 		
 		var html1 = new sap.ui.core.HTML({
-            content:   "<canvas id='houseCanvas' width='750' height='750' " + "style=border:5px solid #cccccc;'>" +   "</canvas>"
+            content:   "<canvas id='sentenceCanvas' width='750' height='750' " + "style=border:5px solid #cccccc;'>" +   "</canvas>"
     });     
   
 		
@@ -57,11 +63,11 @@ sap.ui.jsview("view.writing", {
 			showFooter:true,
 			navButtonTap : function() {
 				//that.getParent().back();
-				that.getParent().backToPage("weeklyTasksPage");
+				that.getParent().backToPage("writingPage2");
 			},			
 			content: [
-					task,
-					html1,nextBtn, clearBtn]
+					task,sentence,
+					html1,finishBtn, clearBtn]
 		});
 	}
 
