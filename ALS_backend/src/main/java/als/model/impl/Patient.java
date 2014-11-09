@@ -1,6 +1,5 @@
 package als.model.impl;
 
-<<<<<<< HEAD
 /**
  * @author I031820
  *
@@ -74,30 +73,4 @@ public class Patient implements IPatient{
 	public Calendar getDiagnoseDate() {
 		return this.mDiagnoseDate;
 	}
-	
-	
-=======
-import als.model.IPatient;
-
-public class Patient implements IPatient {
-
-	@Override
-	public String getEmail() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int getYears() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
->>>>>>> 5ee5fdb47186c644b521583a35cc3fd082d73dc5
 }

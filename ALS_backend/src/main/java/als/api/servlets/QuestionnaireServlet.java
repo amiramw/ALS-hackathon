@@ -20,7 +20,7 @@ import org.eclipse.persistence.config.PersistenceUnitProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import als.model.impl.AnsweredQuestionnaire;
+//import als.model.impl.AnsweredQuestionnaire;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -81,8 +81,8 @@ public class QuestionnaireServlet extends HttpServlet {
 				throw new RuntimeException("null json");
 			}
 			LOGGER.debug("filledQuestionnaire is: " + json);
-			AnsweredQuestionnaire filledQuestion = mapper.readValue(json,
-					AnsweredQuestionnaire.class);
+			/*AnsweredQuestionnaire filledQuestion = mapper.readValue(json,
+					AnsweredQuestionnaire.class);*/
 			// TODO call persistency layer
 			response.setStatus(200);
 		} catch (Exception e) {

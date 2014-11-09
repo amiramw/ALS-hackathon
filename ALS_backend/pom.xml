@@ -113,7 +113,6 @@
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
 			<version>2.7.5</version>
 		</dependency>
-<<<<<<< HEAD
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -142,9 +141,6 @@
 			<version>${mysql.version}</version>
 			<scope>runtime</scope>
 		</dependency>		
-=======
-
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -166,7 +162,6 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>1.7.7</version>
 		</dependency>
->>>>>>> 5ee5fdb47186c644b521583a35cc3fd082d73dc5
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>

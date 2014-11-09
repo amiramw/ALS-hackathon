@@ -27,15 +27,15 @@
 		<constructor-arg ref="dataSource"></constructor-arg>
 	</bean>
 
-	<bean id="PatientDAO" class="als.persistence.dao.jdbc.PatientJDBCTemplate">
+	<bean id="PatientDAO" class="als.persistence.dao.jdbc.Patient">
 		<property name="connection" ref="jdbcTemplate" />
 	</bean>
 
-	<bean id="PatientFormDAO" class="als.persistence.dao.jdbc.PatientFormJDBCTemplate">
+	<bean id="PatientFormDAO" class="als.persistence.dao.jdbc.PatientForm">
 		<property name="connection" ref="jdbcTemplate" />
 	</bean>
 
-	<bean id="PatientSensorDAO" class="als.persistence.dao.jdbc.PatientSensorJDBCTemplate">
+	<bean id="PatientSensorDAO" class="als.persistence.dao.jdbc.PatientSensor">
 		<property name="connection" ref="jdbcTemplate" />
 	</bean>
 
