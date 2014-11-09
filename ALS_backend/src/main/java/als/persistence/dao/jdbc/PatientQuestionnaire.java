@@ -5,6 +5,7 @@ package als.persistence.dao.jdbc;
  *
  */
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.dao.DataAccessException;
@@ -49,6 +50,32 @@ class PatientQuestionnaire extends BaseCon implements IPatientQuestionnaireDAO{
 	@Override
 	public void delete(String email, Integer date) {
 		
+	}
+
+
+	@Override
+	public Timestamp getLastSubmitedQuestionnaire(Integer id) {
+		Timestamp timestamp = null;
+		try{
+			String SQL = "SELECT SubmitionDate FROM tbl_form WHERE id = ? ORDER By SubmitionDate DESC LIMIT 1  ";
+			timestamp = jdbcTemplateObject.queryForObject(SQL,Timestamp.class, id);
+		}catch(DataAccessException exp){
+			System.out.println("Faile to get last submitted  timestamp from  record for patient = " + id + " reason:" + exp.getLocalizedMessage());
+		}
+		return timestamp;
+	}
+
+
+	@Override
+	public Timestamp getLastSubmitedQuestionnaire(String email) {
+		Timestamp timestamp = null;
+		try{
+			String SQL = "SELECT SubmitionDate FROM tbl_form WHERE email = ? ORDER By SubmitionDate DESC LIMIT 1  ";
+			timestamp = jdbcTemplateObject.queryForObject(SQL,Timestamp.class, email);
+		}catch(DataAccessException exp){
+			System.out.println("Faile to get last submitted  timestamp from  record for patient = " + email + " reason:" + exp.getLocalizedMessage());
+		}
+		return timestamp;
 	}
 
 }
