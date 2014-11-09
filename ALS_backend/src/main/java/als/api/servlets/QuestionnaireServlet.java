@@ -3,25 +3,18 @@ package als.api.servlets;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.Map;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 
-import org.eclipse.persistence.config.PersistenceUnitProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//import als.model.impl.AnsweredQuestionnaire;
+import als.api.model.Questionnaire;
 
+//import als.model.impl.AnsweredQuestionnaire;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -32,28 +25,13 @@ public class QuestionnaireServlet extends HttpServlet {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(QuestionnaireServlet.class);
 
-	private DataSource ds;
-	private EntityManagerFactory emf;
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void init() throws ServletException {
-		try {
-			InitialContext ctx = new InitialContext();
-			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/DefaultDB");
-
-			Map properties = new HashMap();
-			properties.put(PersistenceUnitProperties.NON_JTA_DATASOURCE, ds);
-			emf = Persistence.createEntityManagerFactory("ALS_backend",
-					properties);
-		} catch (NamingException e) {
-			throw new ServletException(e);
-		}
 	}
 
 	@Override
 	public void destroy() {
-		emf.close();
 	}
 
 	@Override
@@ -81,8 +59,8 @@ public class QuestionnaireServlet extends HttpServlet {
 				throw new RuntimeException("null json");
 			}
 			LOGGER.debug("filledQuestionnaire is: " + json);
-			/*AnsweredQuestionnaire filledQuestion = mapper.readValue(json,
-					AnsweredQuestionnaire.class);*/
+			Questionnaire filledQuestions = mapper.readValue(json,
+					Questionnaire.class);
 			// TODO call persistency layer
 			response.setStatus(200);
 		} catch (Exception e) {
