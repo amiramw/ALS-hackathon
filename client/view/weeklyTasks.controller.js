@@ -30,6 +30,12 @@ sap.ui.controller("view.weeklyTasks", {
         if(path==="/modelData/0"){
             this.app.to("questionsPage");
         }
+        if (path ==="/modelData/1")
+        {
+        	this.app.to("speechPage");
+        }
+        if (path ==="/modelData/2")
+        	this.app.to("writingPage");
     }
 
 /**
