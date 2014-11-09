@@ -325,3 +325,34 @@ textarea:-ms-input-placeholder {
     padding-bottom: 2em;
 }
 
+#question_layout {
+    height: 100%;
+}
+
+#question_layout .sapUiVltCell.sapuiVltCell:nth-child(2){
+    height: 100%;
+}
+
+.question_footer {
+    width: 100%;
+    position: absolute;
+    bottom: 3em;
+}
+
+.questions_header {
+    background-color: #15bfcb;
+    width: 100%;
+}
+
+.questions_header .sapMLabel{
+    position: absolute;
+    color: #FFF;
+}
+
+.questions_header .sapMLabel.page_num{
+    right: 1em;
+}
+
+.questions_header .sapMLabel.question_title{
+    left: 1em;
+}
