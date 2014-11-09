@@ -156,7 +156,17 @@ textarea:-ms-input-placeholder {
 #loginPage .marginedLeft {
     padding-left: 3em;
 }
+#speechPage #finishBtn {
+    position: absolute;
+    bottom: 0;
+    background-color: #15BFCB;
+    border-top: 1px solid white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-family: Designio;
+    font-size: .7em;
 
+}
 #appLayout {
     margin-top: 3em;
     margin-bottom: 2em;
@@ -189,6 +199,10 @@ textarea:-ms-input-placeholder {
     line-height: 2.9em;
     font-weight: 300;
 }
+#genderLabel {
+    line-height: 2.9em;
+    font-weight: 300;
+}
 
 #genderLayout {
     margin-top: 2em;
@@ -210,6 +224,17 @@ textarea:-ms-input-placeholder {
 #dateOfOnsetLayout {
     margin-top: 0.5em;
     margin-bottom: 1em;
+}
+.finishLayout {
+    position: absolute;
+    bottom: 0;
+    background-color: #15BFCB;
+    border-top: 1px solid white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-family: Designio;
+    font-size: 1.7em;
+
 }
 
 #loginPage .sapMLabel#loginLabel {
