@@ -64,6 +64,10 @@ textarea:-ms-input-placeholder {
     outline: none !important;
 }
 
+.sapMRbBOut:focus {
+    outline: none !important;
+}
+
 .header {
     background-color: #21DBE8;
     border-bottom: 1px solid white;
@@ -148,6 +152,10 @@ textarea:-ms-input-placeholder {
     font-size: 2em;
     margin-top: 0.2em;
     margin-left: 0.2em;
+}
+
+#loginPage .marginedLeft {
+    padding-left: 3em;
 }
 
 #appLayout {

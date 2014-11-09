@@ -96,7 +96,7 @@ sap.ui.jsview("view.login", {
 
         var genderLayout = new sap.ui.layout.HorizontalLayout('genderLayout', {
             content: [genderLabel, this.maleRadioButton, this.femaleRadioButton]
-        }).addStyleClass('centeredLayout');
+        }).addStyleClass('marginedLeft');
 
         var yearOfBirthLabel = new sap.m.Label('yearOfBirthLabel', {
             text: 'Year of birth'
@@ -117,10 +117,10 @@ sap.ui.jsview("view.login", {
 
         var yearOfBirthLayout = new sap.ui.layout.HorizontalLayout('yearOfBirthLayout', {
             content: [yearOfBirthLabel, yearOfBirthSelect]
-        }).addStyleClass('centeredLayout');
+        }).addStyleClass('marginedLeft');
 
         var dateOfOnsetLabel = new sap.m.Label('dateOfOnsetLabel', {
-            text: 'When was your first onset of symptoms?'
+            text: 'When were you first diagnosed?'
         });
 
         var monthNames = [ "January", "February", "March", "April", "May", "June",
@@ -153,11 +153,11 @@ sap.ui.jsview("view.login", {
 
         var dateOfOnsetSelectLayout = new sap.ui.layout.HorizontalLayout('dateOfOnsetSelectLayout', {
             content: [dateOfOnsetMonthSelect, dateOfOnsetYearSelect]
-        }).addStyleClass('centeredLayout');
+        });
 
         var dateOfOnsetLayout = new sap.ui.layout.VerticalLayout('dateOfOnsetLayout', {
             content: [dateOfOnsetLabel, dateOfOnsetSelectLayout]
-        }).addStyleClass('centeredLayout');
+        }).addStyleClass('marginedLeft');
 
         var loginLabel = new sap.m.Label('loginLabel', {
             text: "Login",
