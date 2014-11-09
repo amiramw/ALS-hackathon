@@ -3,12 +3,12 @@ package als.model;
 import java.util.Date;
 import java.util.List;
 
-public interface IAnsweredQuestionaire {
+public interface IAnsweredQuestionnaire {
 
 	String getPatientEmail();
 
 	Date getSubmissionTime();
 
-	List<IAnsweredQuestion> getAnsweredQuestions();
+	List<? extends IAnsweredQuestion> getAnsweredQuestions();
 
 }
