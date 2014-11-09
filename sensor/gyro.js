@@ -8,11 +8,7 @@ var x = 0,
 	ay = 0;
 
 var data = {
-	"data": [{
-		"a": "a",
-		"b": "b",
-		"c": "c",
-	}]
+	"data": []
 };
 
 var recording = false; // TODO: change to false
@@ -21,8 +17,8 @@ var sphere = document.getElementById("sphere");
 
 if (window.DeviceMotionEvent != undefined) {
 	window.ondevicemotion = function(e) {
-		ax = event.accelerationIncludingGravity.x * 5;
-		ay = event.accelerationIncludingGravity.y * 5;
+		ax = e.accelerationIncludingGravity.x * 5;
+		ay = e.accelerationIncludingGravity.y * 5;
 		document.getElementById("accelerationX").innerHTML = e.accelerationIncludingGravity.x;
 		document.getElementById("accelerationY").innerHTML = e.accelerationIncludingGravity.y;
 		document.getElementById("accelerationZ").innerHTML = e.accelerationIncludingGravity.z;
@@ -37,7 +33,7 @@ if (window.DeviceMotionEvent != undefined) {
 			document.getElementById("rotationBeta").innerHTML = e.rotationRate.beta;
 			document.getElementById("rotationGamma").innerHTML = e.rotationRate.gamma;
 			read.rotationRateAlpha = e.rotationRate.alpha;
-			read.rotationRateBeta = e.rotationRate.beta;
+            read.rotationRateBeta = e.rotationRate.beta;
 			read.rotationRateGamma = e.rotationRate.gamma;
 		}
 
@@ -89,8 +85,14 @@ function boundingBoxCheck() {
 
 }
 
-function send(data) {
-	$.post("http://10.26.181.49:8081", JSON.stringify(data))
+function send() {
+    var currentData = data;
+    data = {data:[]};
+
+    var payload = JSON.stringify(currentData);
+    alert('Sending ' + currentData.data.length + ' items');
+
+	$.post("http://10.26.181.49:8081", JSON.stringify(payload))
 		.done(function (res) {
 			alert("server: " + res);
 		})
@@ -99,29 +101,22 @@ function send(data) {
 		});
 }
 
-function startRec () {
-	recording = true;
-}
-
-function stopRec () {
-	recording = false;
-}
-
 document.getElementById('send').onclick = function() {
-	send(data);
+	send();
 }
 
 document.getElementById('rec').onclick = function() {
-	if (recording) {
-		recording = false;
-		$('#rec').html("Start Recording");
-	} else {
+	if (!recording) {
 		recording = true;
-		$('#rec').html("Stop Recording");
-	}
+        if (document.getElementById('rec')){
+            document.getElementById('rec').innerHTML = 'Stop Recording';
+        }
+    } else {
+        if (document.getElementById('rec')){
+            document.getElementById('rec').innerHTML = 'Start Recording';
+        }
+		recording = false;
+    }
 
 }
-document.getElementById('send').onclick = function() {
-	// send(data);
-	alert(JSON.stringify(data))
-}
+document.getElementById('send').onclick = send;
