@@ -8,7 +8,9 @@ sap.ui.jsview("view.questions", {
 
     createContent: function(){
         var that = this;
-        this.nav = new sap.m.NavContainer();
+        this.nav = new sap.m.NavContainer({
+            height: '100%'
+        });
 
         this.nav.bindAggregation("pages", {
             path: "/questions",
@@ -25,9 +27,21 @@ sap.ui.jsview("view.questions", {
                 }
 
                 var pageId = oContext.getProperty("id");
-                var page = new sap.m.Page("page_" + pageId,{title:"{title}"});
+                
+
+                var page = new sap.m.Page("page_" + pageId, {
+                    showHeader: false
+                });
 
                 var box = new sap.m.VBox();
+                var headerLayout = new sap.ui.layout.HorizontalLayout({
+                    content: [
+                        new sap.m.Label("",{"text":"{title}"}).addStyleClass("question_title"),
+                        new sap.m.Label({"text": (index + 1) + "/" + questions.length}).addStyleClass("page_num")
+                    ]
+                }).addStyleClass('questions_header');
+
+                box.addItem(headerLayout);
 
                 for (i = 0; i < answers.length; i++) {
                     box.addItem(new sap.m.RadioButton({
@@ -69,16 +83,29 @@ sap.ui.jsview("view.questions", {
                     }));
                 }
 
+                box.addItem(new sap.m.Input());
+
                 page.addContent(box);
 
-                page.addContent(new sap.m.Button({text:"Next", press: function(){
-                    that.nav.to("page_" + questions[nextIndex].id);
-                }}));
+                var footer = new sap.ui.layout.HorizontalLayout({
+                    content: [new sap.m.Button({text:"Next", press: function(){
+                        that.nav.to("page_" + questions[nextIndex].id);
+                    }}) ]
+                }).addStyleClass('footer').addStyleClass('question_footer');
+
+                page.addContent(footer);
                 return page;
             }
         });
 
-        return this.nav;
+
+        var header = sap.ui.jsfragment('HeaderToolbar', {
+            title: 'Questionnaire',
+            showHomeButton: true
+        });
+
+        return new sap.ui.layout.VerticalLayout("question_layout", {content: [header, this.nav], width: '100%'});
+
     },
 
     onAfterRendering: function(){
