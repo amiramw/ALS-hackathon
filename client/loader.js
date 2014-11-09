@@ -75,4 +75,13 @@ var writing1 = sap.ui.view({
 });
 app.addPage(writing1);
 
+
+var completedPage = sap.ui.view({
+    id:"completedPage",
+    viewName:"view.completed",
+    type:sap.ui.core.mvc.ViewType.JS
+});
+app.addPage(completedPage);
+
 app.placeAt("content");
+

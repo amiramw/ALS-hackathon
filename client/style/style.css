@@ -380,3 +380,22 @@ textarea:-ms-input-placeholder {
 .questions_header .sapMLabel.question_title{
     left: 1em;
 }
+
+/********** Completed page **********/
+#completedPage {
+    background-image: url('../images/BG.png');
+}
+
+
+
+#completedPage #ribbonIcon {
+    margin-top: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+#completedPage #completedLabel{
+    color:#ffffff;
+    text-decoration: underline;
+}
