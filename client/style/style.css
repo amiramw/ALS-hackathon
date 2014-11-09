@@ -225,6 +225,34 @@ textarea:-ms-input-placeholder {
 
 /********** Weekly tasks page **********/
 
+#weeklyTasksPage .sapMLabel.subtitle{
+    background-color: #15bfcb;
+    color: white;
+    padding: 0.5em 0.2em 0.5em 0.5em;
+}
+
+#weeklyTasksPage .sapMLIBContent{
+    background-color: #f2f2f2;
+    border-left-color: #ff745c;
+    border-width: 3px;
+    border-left-style: solid;
+    height: 100%;
+}
+
+#weeklyTasksPage .sapMLabel{
+    color: #4d4d4d;
+    font-family: SegoeUI;
+    font-weight: normal
+}
+#weeklyTasksPage .sapMLIB{
+    border-bottom: 1px solid #CCCCCC;
+    border-top: 2px solid white;
+}
+
+/*#weeklyTasksPage .sapMList{
+    height: 100%;
+}*/
+
 .taskIcon{
     margin: 0.5em 0.2em 0.5em 0.5em;
     width: 10%
@@ -236,23 +264,19 @@ textarea:-ms-input-placeholder {
 
 .dateStatus{
     margin: 0.5em 0.1em 0.5em 0.5em;
-    font-size: 10px;
+    font-size: 0.8em;
     width:  15%;
 }
 
 .date{
     margin: 0.5em 0.1em 0.5em 0.5em;
-    font-size: 10px;
+    font-size: 1em;
     width:  20%;
 }
 
 .statusIcon{
     margin: 0.5em 0.1em 0.5em 0.5em;
     width:  3%;
-}
-
-.subtitle{
-    margin: 0.5em 0.1em 0.5em 0.5em;
 }
 
 /********** Questions page **********/

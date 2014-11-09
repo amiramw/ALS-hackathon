@@ -8,6 +8,9 @@ sap.ui.controller("view.weeklyTasks", {
 
 	onInit: function() {
     this.app = sap.ui.getCore().byId("alsApp");
+    sap.ui.getCore().byId(sap.ui.core.Fragment.createId(this.getView().sId, 'headerToolbarTitle')).setText('My HealthCare');
+    sap.ui.getCore().byId(sap.ui.core.Fragment.createId(this.getView().sId, 'headerToolbarHomeButton')).setVisible(false);
+
     //The data for the list
         var aData = { modelData : [
 
