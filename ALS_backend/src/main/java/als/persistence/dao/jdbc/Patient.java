@@ -25,9 +25,11 @@ class Patient extends BaseCon implements
 		try{
 			String email = patient.getEmail();
 			String SQL = "select id from tbl_patient where email = ?";
-			Integer hasId = jdbcTemplateObject.queryForObject(SQL,Integer.class, email);
 			
-			if(hasId!=null){
+			List<String> strLst  = jdbcTemplateObject.queryForList(SQL, new Object[]{email},String.class);
+
+			
+			if(strLst!=null && !strLst.isEmpty()){
 				//TBD - update the caller that user already exist
 				System.out.println("Faile to create Patient record for patient = " + email + " already exist");
 				return;	
