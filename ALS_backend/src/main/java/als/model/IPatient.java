@@ -1,11 +1,16 @@
 package als.model;
 
+import java.util.Calendar;
+
+import als.util.Gender;
+
 public interface IPatient {
-
 	String getEmail();
-
-	String getName();
-
-	int getYears();
-
+	String getFirstName();
+	String getLastName();
+	Calendar getCreationDate();
+	Gender getGender();
+	Calendar getBirhtday();
+	Calendar getDiagnoseDate();
+	
 }

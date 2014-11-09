@@ -4,7 +4,7 @@ public interface IAnsweredQuestion {
 
 	int getQuestionId();
 
-	int getAnswerId();
+	Object getAnswer();
 
 	String getRemark();
 

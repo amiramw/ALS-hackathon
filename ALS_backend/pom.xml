@@ -1,15 +1,47 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<!-- 
+	**************************************************************************
+  	* POM SECTION: Maven Model Version Settings
+  	***************************************************************************
+	--> 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>ALS_backend</artifactId>
-	<packaging>war</packaging>
+	
 
+ 	<!-- 
+	**************************************************************************
+  	* POM SECTION: Parent POM Settings
+  	***************************************************************************
+	--> 
 	<parent>
 		<groupId>com.sap.als</groupId>
 		<artifactId>parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
+	<!-- 
+	**************************************************************************	
+  	* POM SECTION: Maven Settings
+  	***************************************************************************
+	--> 
+	<artifactId>ALS_backend</artifactId>
+	<packaging>war</packaging>
+	
+	<!-- 
+	**************************************************************************
+  	* POM SECTION: Properties Settings
+ 	***************************************************************************
+	--> 
+ 	<properties>
+ 		<spring.version>4.1.1.RELEASE</spring.version>
+ 		<mysql.version>5.1.30</mysql.version>
+  	</properties>
+	
+	 <!--
+	 **************************************************************************
+	 * POM SECTION: Dependency Settings
+	 ***************************************************************************
+	 -->
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.derby</groupId>
@@ -81,11 +113,59 @@
 			<artifactId>cxf-rt-frontend-jaxrs</artifactId>
 			<version>2.7.5</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.3.5.Final</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+			<scope>runtime</scope>
+		</dependency>		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.3.3</version>
+		</dependency>
+		<dependency>
+			<!-- note: typically only ".0" patch version exists for core annotations -->
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.7</version>
+		</dependency>
 	</dependencies>
-
-
 	<build>
 		<finalName>${project.artifactId}</finalName>
 	</build>
+	<!-- ApplicationContext context = new ClassPathXmlApplicationContext("path/to/applicationContext.xml");
+            -->
 </project>
