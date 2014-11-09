@@ -23,7 +23,7 @@ class Patient extends BaseCon implements
 	@Override
 	public void create(IPatient patient) {
 		try{
-			String email = patient.getEmail();
+			/*String email = patient.getEmail();
 			String SQL = "select id from tbl_patient where email = ?";
 			Integer hasId = jdbcTemplateObject.queryForObject(SQL,Integer.class, email);
 			
@@ -31,14 +31,14 @@ class Patient extends BaseCon implements
 				//TBD - update the caller that user already exist
 				System.out.println("Faile to create Patient record for patient = " + email + " already exist");
 				return;	
-			}
+			}*/
 			
 			
-			String id = UUID.randomUUID().toString();
-			SQL = "insert into tbl_patient (	id, " + "email," + "LastName,"
+			
+			String SQL = "insert into tbl_patient (	 " + "email," + "LastName,"
 					+ "FirstName," + "CreationDate," + "Gender," + "BirthDate,"
-					+ "DiagnoseDate) values (?, ?, ?, ?, ?, ?,? ,?)";
-			jdbcTemplateObject.update(SQL, id, patient.getEmail(),
+					+ "DiagnoseDate) values ( ?, ?, ?, ?, ?,? ,?)";
+			jdbcTemplateObject.update(SQL, patient.getEmail(),
 					patient.getLastName(), patient.getFirstName(),
 					patient.getCreationDate(), patient.getGender().getValue(),
 					patient.getBirhtday(), patient.getDiagnoseDate());
