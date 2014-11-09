@@ -6,6 +6,7 @@ package als.persistence.dao;
  */
 
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import als.model.impl.AbstractQuestionnaire;
@@ -36,4 +37,13 @@ public interface IPatientQuestionnaireDAO extends BaseDAO {
 	  */
 	 public void delete(Integer id,Integer date);
 	 public void delete(String email,Integer date);
+	 
+	 /** 
+	  * This is the method to be used to get 
+	  * the last submitted questionnaire table corresponding
+	  * to a passed patient id/email.
+	  */
+	 public Timestamp getLastSubmitedQuestionnaire(Integer id);
+	 public Timestamp getLastSubmitedQuestionnaire(String email);
+	   
 }
