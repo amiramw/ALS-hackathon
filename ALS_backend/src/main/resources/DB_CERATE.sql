@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS`db_als`.`tbl_form` (
   `Q10` TINYINT NULL,
   `Q11` TINYINT NULL,
   `Q12` TINYINT NULL,
-  `EXT_ID` BIGINT UNSIGNED NOT NULL,
+  `EXT_ID` varchar(36) NOT NULL,
   UNIQUE INDEX `EXT_ID_UNIQUE` (`EXT_ID` ASC),
   CONSTRAINT `fk_id_id`
     FOREIGN KEY (`id`)
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS`db_als`.`tbl_sensor` (
   `SubmitionDate` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `SensorType` CHAR NOT NULL,
   `Data` BLOB NOT NULL,
-  `EXT_ID` BIGINT UNSIGNED NOT NULL,
+  `EXT_ID` varchar(36) NOT NULL,
   UNIQUE INDEX `EXT_ID_UNIQUE` (`EXT_ID` ASC),
   CONSTRAINT `fk_id_id_sensor`
     FOREIGN KEY (`id`)
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS`db_als`.`tbl_sensor` (
 
 -- The tables to add additional data about a specific sensor/form row
 CREATE TABLE IF NOT EXISTS`db_als`.`tbl_form_ext` (
-  `id` BIGINT UNSIGNED NOT NULL,
+  `id` varchar(36) NOT NULL,
   `Key` VARCHAR(225) NULL,
   `Val` VARCHAR(1000) NULL,
   INDEX `fk_ext_id_form_idx_idx` (`id` ASC),
@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS`db_als`.`tbl_form_ext` (
     ON UPDATE NO ACTION);
 
 CREATE TABLE IF NOT EXISTS`db_als`.`tbl_sensor_ext` (
-  `id` BIGINT UNSIGNED NOT NULL,
+  `id` varchar(36) NOT NULL,
   `Key` VARCHAR(225) NULL,
   `Val` VARCHAR(1000) NULL,
   INDEX `fk_ext_id_sensor_idx` (`id` ASC),
