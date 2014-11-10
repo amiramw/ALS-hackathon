@@ -24,12 +24,13 @@ sap.ui.jsview("view.register", {
 
         var that = this;
 
-        var registerLabel = new sap.m.Label('registerLabel', {
-            text: 'Please fill in your details'
-        });
+        var appLogoIconRegister = new sap.m.Image('appLogoIconRegister', {
+            src: 'images/appLogo.png',
+            height: '3em'
+        }).addStyleClass('centeredLayout');
 
         var registerLayout = new sap.ui.layout.HorizontalLayout('registerLayout', {
-            content: [registerLabel]
+            content: [appLogoIconRegister]
         }).addStyleClass('centeredLayout');
 
         var usernameTextArea = new sap.m.TextArea('usernameTextArea', {

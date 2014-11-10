@@ -13,7 +13,7 @@ sap.ui.jsview("view.login", {
 
         var appLogoIcon = new sap.m.Image('appLogoIcon', {
             src: 'images/appLogo.png',
-            size: '2em'
+            height: '3em'
         }).addStyleClass('centeredLayout');
 
         var emailRegisterTextArea = new sap.m.TextArea('emailRegisterTextArea', {
