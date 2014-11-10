@@ -104,4 +104,6 @@ var completedPage = sap.ui.view({
 });
 alsApp.addPage(completedPage);
 
+alsApp.SERVER_URL = 'http://iltlvwssc793.emea.global.corp.sap:8080/ALS_backend';
+
 alsApp.placeAt("content");
