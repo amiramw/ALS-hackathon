@@ -40,6 +40,13 @@ var loginPage = sap.ui.view({
 });
 alsApp.addPage(loginPage);
 
+var registerPage = sap.ui.view({
+    id:"registerPage",
+    viewName:"view.register",
+    type:sap.ui.core.mvc.ViewType.JS
+});
+alsApp.addPage(registerPage);
+
 var weeklyTasksPage = sap.ui.view({
     id:"weeklyTasksPage",
     viewName:"view.weeklyTasks",

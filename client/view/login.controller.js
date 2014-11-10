@@ -5,24 +5,24 @@ sap.ui.controller("view.login", {
 
     onLogin: function(oEvent) {
         var view = sap.ui.getCore().byId('loginPage');
-        var yearOfBirth = parseInt(view.yearOfBirth);
-        var thisYear = new Date().getFullYear();
-
-        if (isNaN(yearOfBirth) || yearOfBirth < 1900 || yearOfBirth > thisYear) {
-            sap.m.MessageBox.alert('Please enter a year of birth between 1900 and ' + new Date().getFullYear(), {
-                    title: 'Details Missing'
-                }
-            );
-        }
-        else if (view.email !== "" && view.email !== null && view.yearOfBirth !== null && view.yearOfBirth !== "" &&
-            view.gender !== null && view.onsetMonth !== null && view.onsetYear !== null) {
+        if (view.email !== "" && view.email !== null) {
             alsApp.to("weeklyTasksPage");
         }
         else {
-            sap.m.MessageBox.alert('Please fill in all the details before logging in', {
+            sap.m.MessageBox.alert('Please fill in your email before logging in', {
                 title: 'Details Missing'
             });
         }
+    },
+
+    onRegister: function(oEvent) {
+        alsApp.to("registerPage");
+    },
+
+    onDisclaimer: function(oEvent) {
+        sap.m.MessageBox.alert('The legal disclaimer will appear here', {
+            title: 'Legal Disclaimer'
+        });
     }
 
 });
