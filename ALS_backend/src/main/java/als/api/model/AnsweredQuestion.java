@@ -3,6 +3,7 @@ package als.api.model;
 public class AnsweredQuestion {
 	int questionId;
 	int answerId;
+	String remark;
 	public int getQuestionId() {
 		return questionId;
 	}
@@ -21,6 +22,5 @@ public class AnsweredQuestion {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	String remark;
 
 }

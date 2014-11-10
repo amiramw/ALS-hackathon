@@ -14,6 +14,7 @@ import org.springframework.context.ApplicationContext;
 import als.model.IPatient;
 import als.model.impl.Patient;
 import als.persistence.dao.IPatientDAO;
+//import als.persistence.dao.IPatientFormDAO;
 import als.util.AppContextFactory;
 import als.util.AppCtx;
 import als.util.Gender;
@@ -37,6 +38,7 @@ public class TestMe extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("deprecation")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 //ApplicationContext applicationContext = new ClassPathXmlApplicationContext("/application-context.xml");
 		//@RequestParam(value = "offline") Boolean val;
@@ -52,6 +54,9 @@ public class TestMe extends HttpServlet {
 		} else {
 			response.getOutputStream().println("Failed");
 		}
+		
+		//IPatientFormDAO patientFormDAO = (IPatientFormDAO) ctx.getBean("PatientFormDAO");
+		
 	}
 
 	/**

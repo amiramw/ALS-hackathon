@@ -33,7 +33,7 @@ class PatientSensor extends PatientQuestionnaire implements IPatientSensorDAO{
 											id, 
 											questionnaire.getSubmissionTime(),
 											questionnaire.getSensorType().getValue(),
-											questionnaire.getAnsweredQuestionsByIndex(0).getAnswer(),
+											questionnaire.getAnswerForQuestion(0, null),
 											ext_id);
 					
 				System.out.println("Created Questionnaire Record ID= "+ id+" Time = "+questionnaire.getSubmissionTime() + " For patient" + questionnaire.getPatientEmail());

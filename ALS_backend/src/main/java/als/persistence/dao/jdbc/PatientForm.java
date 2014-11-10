@@ -9,6 +9,8 @@ import java.util.UUID;
 
 import org.springframework.dao.DataAccessException;
 
+import als.model.IAnsweredQuestion;
+import als.model.impl.Answer;
 import als.model.impl.FormQuestionnaire;
 import als.persistence.dao.IPatientFormDAO;
 
@@ -28,22 +30,24 @@ class PatientForm extends PatientQuestionnaire implements IPatientFormDAO{
 				
 				String ext_id = UUID.randomUUID().toString();
 				
+				IAnsweredQuestion def = new Answer();
+				
 				String SQL = "insert into tbl_form (id, SubmitionDate, Q1, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q9, Q10, Q11, Q12, EXT_ID) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				jdbcTemplateObject.update( SQL, 
 											id, 
 											questionnaire.getSubmissionTime(),
-											questionnaire.getAnsweredQuestionsByIndex(1).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(2).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(3).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(4).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(5).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(6).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(7).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(8).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(9).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(10).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(11).getAnswer(),
-											questionnaire.getAnsweredQuestionsByIndex(12).getAnswer(),
+											questionnaire.getAnswerForQuestion(1,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(2,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(3,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(4,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(5,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(6,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(7,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(8,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(9,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(10,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(11,def).getAnswer(),
+											questionnaire.getAnswerForQuestion(12,def).getAnswer(),
 											ext_id);			
 				System.out.println("Created Questionnaire Record Time = "+questionnaire.getSubmissionTime() + " For patient" + questionnaire.getPatientEmail());
 			}catch(DataAccessException exp){
