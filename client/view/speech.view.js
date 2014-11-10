@@ -26,6 +26,11 @@ sap.ui.jsview("view.speech", {
 			contentRight : [homeBtn,title],
 		}).addStyleClass("white").placeAt("content");*/
 
+        var header = sap.ui.jsfragment(this.getId(), 'HeaderToolbar', {
+            title: 'Speech',
+            showHomeButton: true
+        });
+
 		var task = new sap.m.Label({
 			text: "Tap record and say the following sentence:",
 			textAlign: 'Center',
@@ -38,14 +43,20 @@ sap.ui.jsview("view.speech", {
 			width: '100%'
 		}).addStyleClass("subtitle");
 
+        var tapLayout = new sap.ui.layout.VerticalLayout('tapTestLayout', {
+            content: [task,sentenceToSay],
+            width: '100%'
 
-		var micImg = new sap.ui.commons.Image("micImg");
+        }).addStyleClass("centeredLayout");
+
+		var micImg = new sap.ui.commons.Image("micImg").addStyleClass("centeredLayout");
 		micImg.setSrc("images/mic128.png");
 		micImg.addStyleClass("centered");
 		micImg.addStyleClass("size5");
 		micImg.attachPress(function(){
 			that.getController().toggleRecording(this);
-		});
+		})
+
 
 		/*        var Icon = new sap.ui.core.Icon ("micIcon");
         Icon.setSrc("sap-icon://microphone");
@@ -56,27 +67,31 @@ sap.ui.jsview("view.speech", {
         });
 		 */
 
-		var finishBtn = new sap.m.Button("finishSpeech",{text:"Finish"});
-		finishBtn.attachPress(oController.onPress);
+		//var finishBtn = new sap.m.Button("finishSpeech",{text:"Finish"});
+		//finishBtn.attachPress(oController.onPress);
 
-		var link = new sap.ui.commons.Link("link_1",{
-			text:"Temporary link for testing recorded audio"
-		});
+        var link = new sap.ui.commons.Link("link_1",{
+           	text:"Temporary link for testing recorded audio"
+      	});
 
-		return new sap.m.Page({
-			title: "Speech",
-			showNavButton : true,
-			showFooter:true,
-			navButtonTap : function() {
-				//that.getParent().back();
-				that.getParent().backToPage("weeklyTasksPage");
-			},			
-			content: [
-					task,
-					sentenceToSay, 
-					micImg,finishBtn, link
-					]
-		});
+        var finishLabel = new sap.m.Label('finish', {
+            text: "Finish",
+            width: "100%",
+            textAlign: 'Center'
+        }).attachBrowserEvent('click', oController.onPress);
+
+        var footer = sap.ui.jsfragment('FooterToolbar', new sap.m.Label('finishLabel', {
+            text: "Finish",
+            width: "100%",
+            textAlign: 'Center'
+        }).attachBrowserEvent('click',oController.onPress ));
+
+
+        var contentLayout = new sap.ui.layout.VerticalLayout('speechContentLayout', {
+            content: [header, tapLayout, micImg,link,footer],
+            width: '100%'
+        });
+		return contentLayout;
 	}
 
 });

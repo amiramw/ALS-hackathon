@@ -7,8 +7,6 @@ sap.ui.jsview("view.login", {
     onsetMonth: null,
     onsetYear: null,
 
-    app: sap.ui.getCore().byId("alsApp"),
-
     maleRadioButton: null,
     femaleRadioButton: null,
 
@@ -20,23 +18,19 @@ sap.ui.jsview("view.login", {
         this.username = localStorage.getItem('alsUsername');
         this.email = localStorage.getItem('alsEmail');
         this.gender = localStorage.getItem('alsGender');
-        this.yearOfBirth = localStorage.getItem('alsYearOfBirth') || "2014";
+        this.yearOfBirth = localStorage.getItem('alsYearOfBirth');
         this.onsetMonth = localStorage.getItem('alsOnsetMonth') || "January";
         this.onsetYear = localStorage.getItem('alsOnsetYear') || "2014";
 
         var that = this;
 
-        var appLogoIcon = new sap.ui.core.Icon('appLogoIcon', {
-            src: 'sap-icon://e-care',
+        var appLogoIcon = new sap.m.Image('appLogoIcon', {
+            src: 'images/appLogo.png',
             size: '2em'
         });
 
-        var appNameLabel = new sap.m.Label('appNameLabel', {
-            text: 'My HealthCare'
-        });
-
         var appLayout = new sap.ui.layout.HorizontalLayout('appLayout', {
-            content: [appLogoIcon, appNameLabel]
+            content: [appLogoIcon]
         }).addStyleClass('centeredLayout');
 
         var usernameTextArea = new sap.m.TextArea('usernameTextArea', {
@@ -61,8 +55,19 @@ sap.ui.jsview("view.login", {
             }
         });
 
+        var yearOfBirthTextArea = new sap.m.TextArea('yearOfBirthTextArea', {
+            placeholder: 'Year of birth',
+            value: localStorage.getItem('alsYearOfBirth'),
+            width: '17em',
+            rows: 1,
+            liveChange: function(event) {
+                that.yearOfBirth = event.getSource().getValue();
+                localStorage.setItem('alsYearOfBirth', that.yearOfBirth);
+            }
+        });
+
         var detailsLayout = new sap.ui.layout.VerticalLayout('detailsLayout', {
-            content: [usernameTextArea, emailTextArea]
+            content: [usernameTextArea, emailTextArea, yearOfBirthTextArea]
         }).addStyleClass('centeredLayout');
 
 
@@ -96,27 +101,6 @@ sap.ui.jsview("view.login", {
 
         var genderLayout = new sap.ui.layout.HorizontalLayout('genderLayout', {
             content: [genderLabel, this.maleRadioButton, this.femaleRadioButton]
-        }).addStyleClass('marginedLeft');
-
-        var yearOfBirthLabel = new sap.m.Label('yearOfBirthLabel', {
-            text: 'Year of birth'
-        });
-
-        var birthYears = [];
-        for (var i = new Date().getFullYear(); i >= 1900; i--) {
-            birthYears.push(new sap.ui.core.Item({key: i, text: i}));
-        }
-
-        var yearOfBirthSelect = new sap.m.Select('yearOfBirthSelect', {
-            items: birthYears,
-            change: function(oEvent) {
-                that.yearOfBirth = oEvent.getSource().getSelectedItem().getText();
-                localStorage.setItem('alsYearOfBirth', that.yearOfBirth);
-            }
-        }).setSelectedKey(this.yearOfBirth);
-
-        var yearOfBirthLayout = new sap.ui.layout.HorizontalLayout('yearOfBirthLayout', {
-            content: [yearOfBirthLabel, yearOfBirthSelect]
         }).addStyleClass('marginedLeft');
 
         var dateOfOnsetLabel = new sap.m.Label('dateOfOnsetLabel', {
@@ -163,19 +147,10 @@ sap.ui.jsview("view.login", {
             text: "Login",
             width: "100%",
             textAlign: 'Center'
-        }).attachBrowserEvent('click', function() {
-                if (that.username !== "" && that.username !== null && that.email !== "" && that.email !== null &&
-                    that.gender !== null && that.yearOfBirth !== null && that.onsetMonth !== null && that.onsetYear !== null) {
-                    controller.onLogin();
-                }
-                else {
-                    sap.m.MessageBox.alert('Please fill in all the details before logging in');
-                }
-            }
-        );
+        }).attachBrowserEvent('click', controller.onLogin);
 
         var contentLayout = new sap.ui.layout.VerticalLayout('contentLayout', {
-            content: [appLayout, detailsLayout, genderLayout, yearOfBirthLayout, dateOfOnsetLayout],
+            content: [appLayout, detailsLayout, genderLayout, dateOfOnsetLayout],
             width: '100%'
         });
 

@@ -32,19 +32,19 @@ sap.ui.jsview("view.writing", {
 			width: '100%'
 		});
 
-		var clearBtn = new sap.m.Button("clear",{text:"Clear"});
+		var clearBtn = new sap.m.Button({text:"Clear"});
 		clearBtn.attachPress(oController, oController.onClear);
 
 
 		
 		
-		var finishBtn = new sap.m.Button("finishWriting",{text:"Finish"});
-		finishBtn.attachPress(oController, oController.onFinish);
+		var nextBtn = new sap.m.Button({text:"Next"});
+		nextBtn.attachPress(oController, oController.onNext);
 
 
 
 		
-		var html1 = new sap.ui.core.HTML("html1", {
+		var html1 = new sap.ui.core.HTML({
             content:   "<canvas id='houseCanvas' width='750' height='750' " + "style=border:5px solid #cccccc;'>" +   "</canvas>"
     });     
   
@@ -61,7 +61,7 @@ sap.ui.jsview("view.writing", {
 			},			
 			content: [
 					task,
-					html1,finishBtn, clearBtn]
+					html1,nextBtn, clearBtn]
 		});
 	}
 

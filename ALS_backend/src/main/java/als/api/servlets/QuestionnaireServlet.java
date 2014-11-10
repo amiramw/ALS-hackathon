@@ -3,24 +3,28 @@ package als.api.servlets;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.sql.DataSource;
 
-import org.eclipse.persistence.config.PersistenceUnitProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
 
-//import als.model.impl.AnsweredQuestionnaire;
+import als.api.model.AnsweredQuestion;
+import als.api.model.Questionnaire;
+import als.model.IAnsweredQuestion;
+import als.model.impl.Answer;
+import als.model.impl.FormQuestionnaire;
+import als.persistence.dao.IPatientFormDAO;
+import als.util.AppContextFactory;
+import als.util.AppCtx;
+import als.util.QuestionnaireType;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -32,28 +36,13 @@ public class QuestionnaireServlet extends HttpServlet {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(QuestionnaireServlet.class);
 
-	private DataSource ds;
-	private EntityManagerFactory emf;
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void init() throws ServletException {
-		try {
-			InitialContext ctx = new InitialContext();
-			ds = (DataSource) ctx.lookup("java:comp/env/jdbc/DefaultDB");
-
-			Map properties = new HashMap();
-			properties.put(PersistenceUnitProperties.NON_JTA_DATASOURCE, ds);
-			emf = Persistence.createEntityManagerFactory("ALS_backend",
-					properties);
-		} catch (NamingException e) {
-			throw new ServletException(e);
-		}
 	}
 
 	@Override
 	public void destroy() {
-		emf.close();
 	}
 
 	@Override
@@ -81,12 +70,24 @@ public class QuestionnaireServlet extends HttpServlet {
 				throw new RuntimeException("null json");
 			}
 			LOGGER.debug("filledQuestionnaire is: " + json);
-			/*AnsweredQuestionnaire filledQuestion = mapper.readValue(json,
-					AnsweredQuestionnaire.class);*/
+			Questionnaire filledQuestions = mapper.readValue(json,
+					Questionnaire.class);
+			
+			ApplicationContext ctx = AppContextFactory.getInstance().getContext(AppCtx.JDBC);
+			IPatientFormDAO patientFormDAO = (IPatientFormDAO) ctx.getBean("PatientFormDAO");
+			QuestionnaireType questType = QuestionnaireType.FORM;
+			Map<Integer, IAnsweredQuestion> answers = new HashMap<>();
+			for (AnsweredQuestion q : filledQuestions.getAnswers()) {
+				answers.put(q.getQuestionId(), new Answer(q.getAnswer(), q.getRemark()));
+			}
+			
+			FormQuestionnaire daoQuestionnaire = new FormQuestionnaire(filledQuestions.getEmail(), new Date(), questType, answers);
+			patientFormDAO.create(daoQuestionnaire);
+
 			// TODO call persistency layer
 			response.setStatus(200);
 		} catch (Exception e) {
-			LOGGER.error("Exception occured: " + e);
+			LOGGER.error("Exception occured on questionnaire flow", e);
 			response.setStatus(500);
 		}
 	}

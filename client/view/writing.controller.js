@@ -5,11 +5,11 @@ sap.ui.controller("view.writing", {
 	 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 	 * @memberOf view.writing
 	 */
-	onInit: function() {
+/*	onInit: function() {
 
 
 
-	},
+	},*/
 
 	/**
 	 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
@@ -26,13 +26,13 @@ sap.ui.controller("view.writing", {
 	 * @memberOf view.writing
 	 */
 
-	
+
 	onAfterRendering: function() {
-		
-		this.Drawing = new RecordableDrawing("houseCanvas", true);
+
+		this.Drawing = new RecordableDrawing("houseCanvas", "images/house2.png");
 		this.Drawing.startRecording();
-			
-		
+
+
 	},
 
 
@@ -43,40 +43,40 @@ sap.ui.controller("view.writing", {
 //	onExit: function() {
 
 //	}
-	
-	
-onFinish: function (evt, controller){
-	
+
+
+onNext: function (evt, controller){
+
 	var serialized=null;
 	var drawing = controller.Drawing;
 	drawing.stopRecording();
-	
+
 	serialized = serializeDrawing(drawing);
-	
+
 	if (serialized != null)
 	{
-		//TODO: send to server!
+		window.jsonHouse = "[{\"writingHouse\":" + serialized + "}]";
 		alert(serialized);
-	} else 
+	} else
 	{
-		//nothing to send
+		window.jsonHouse = "";
 	}
-	
 
-	drawing.clearCanvas();	
+
+	drawing.clearCanvas();
 	drawing.startRecording();
-	
+		alsApp.to("writingPage2");
 },
 
 onClear: function(evt, controller){
 	//when user press Clear button we need to clear the canvas and start recording
-	
+
 	// var page = sap.ui.getCore().byId("p");
 	var r = controller.Recorder;
 	var drawing = controller.Drawing;
-	
+
 	drawing.stopRecording();
-	drawing.clearCanvas();	
+	drawing.clearCanvas();
 	drawing.startRecording();
 
 },

@@ -25,51 +25,51 @@ class PatientForm extends PatientQuestionnaire implements IPatientFormDAO{
 				if(date==null)
 					System.out.println("Created questionnaire, missing submissionTime object for offline flow");
 				
-				Object answer = questionnaire.getAnsweredQuestionsByIndex(1).getAnswer();
+				Object answer = questionnaire.getAnswerForQuestion(1,null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 1 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(2).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(2, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 2 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(3).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(3, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 3 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(4).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(4, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 4 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(5).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(5, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 5 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(6).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(6, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 6 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(7).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(7, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 7 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(8).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(8, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 8 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(9).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(9, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 9 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(10).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(10, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 10 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(11).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(11, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 11 object for offline flow");
 				
-				answer = questionnaire.getAnsweredQuestionsByIndex(12).getAnswer();
+				answer = questionnaire.getAnswerForQuestion(12, null).getAnswer();
 				if(answer==null)
 					System.out.println("Created questionnaire, missing answer number 12 object for offline flow");
 				

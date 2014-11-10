@@ -5,9 +5,9 @@ package als.model.impl;
  *
  */
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import als.model.IAnsQuestionnaire;
 import als.model.IAnsweredQuestion;
@@ -15,16 +15,17 @@ import als.util.QuestionnaireType;
 
 public abstract class AbstractQuestionnaire implements IAnsQuestionnaire{
 	
+	
 	protected String mEmail = null;
 	protected Date mSubmissionTime = null;
-	protected List<IAnsweredQuestion> mAnswers;
+	protected Map<Integer, IAnsweredQuestion> mAnswers;
 	protected QuestionnaireType mType = null;
 	
-	public AbstractQuestionnaire(String mail, Date date,QuestionnaireType type,List<IAnsweredQuestion> answers){
+	public AbstractQuestionnaire(String mail, Date date,QuestionnaireType type,Map<Integer, IAnsweredQuestion> answers){
 		this.mEmail= mail;
 		this.mSubmissionTime = date;
 		this.mType = type;
-		if(answers==null)answers = new ArrayList<IAnsweredQuestion>();
+		if(answers==null)answers = new HashMap<Integer, IAnsweredQuestion>();
 		this.mAnswers = answers; 
 	}
 	
@@ -54,25 +55,13 @@ public abstract class AbstractQuestionnaire implements IAnsQuestionnaire{
 		
 	}
 	
-	public List<IAnsweredQuestion> getAnsweredQuestions(){
-		return mAnswers;
-	}
-	
-	public int getAnsweredQuestionsSize(){
-		return mAnswers.size();
-	}
-
-	public IAnsweredQuestion getAnsweredQuestionsByIndex(int index,IAnsweredQuestion defValue){
-		IAnsweredQuestion res = getAnsweredQuestionsByIndex(index);
-		if(res==null)res = defValue;
-		return res;
-	}
-	
-	public IAnsweredQuestion getAnsweredQuestionsByIndex(int index){
-		if(index==0 && index < mAnswers.size()){
-			return mAnswers.get(index);
+	@Override
+	public IAnsweredQuestion getAnswerForQuestion(int questionNum, IAnsweredQuestion def) {
+		IAnsweredQuestion res = mAnswers.get(questionNum);
+		if (res==null) {
+			res = def;
 		}
-		return null;
+		return res;
 	}
 
 }

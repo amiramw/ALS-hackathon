@@ -8,7 +8,6 @@ package als.persistence.dao.jdbc;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
@@ -23,7 +22,7 @@ class Patient extends BaseCon implements
 	@Override
 	public void create(IPatient patient) {
 		try{
-			String email = patient.getEmail();
+			/*String email = patient.getEmail();
 			String SQL = "select id from tbl_patient where email = ?";
 			
 			List<String> strLst  = jdbcTemplateObject.queryForList(SQL, new Object[]{email},String.class);
@@ -33,14 +32,14 @@ class Patient extends BaseCon implements
 				//TBD - update the caller that user already exist
 				System.out.println("Faile to create Patient record for patient = " + email + " already exist");
 				return;	
-			}
+			}*/
 			
 			
-			String id = UUID.randomUUID().toString();
-			SQL = "insert into tbl_patient (	id, " + "email," + "LastName,"
+			
+			String SQL = "insert into tbl_patient (	 " + "email," + "LastName,"
 					+ "FirstName," + "CreationDate," + "Gender," + "BirthDate,"
-					+ "DiagnoseDate) values (?, ?, ?, ?, ?, ?,? ,?)";
-			jdbcTemplateObject.update(SQL, id, patient.getEmail(),
+					+ "DiagnoseDate) values ( ?, ?, ?, ?, ?,? ,?)";
+			jdbcTemplateObject.update(SQL, patient.getEmail(),
 					patient.getLastName(), patient.getFirstName(),
 					patient.getCreationDate(), patient.getGender().getValue(),
 					patient.getBirhtday(), patient.getDiagnoseDate());
@@ -129,4 +128,6 @@ class Patient extends BaseCon implements
 			return patient;
 		}
 	}
+
+	
 }

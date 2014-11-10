@@ -29,8 +29,8 @@ sap.ui.jsfragment('FooterToolbar', {
     }
 });
 
-var app = new sap.m.App("alsApp",{
-    initialPage:"questionsPage"
+var alsApp = new sap.m.App("alsApp",{
+    initialPage:"loginPage"
 });
 
 var loginPage = sap.ui.view({
@@ -38,38 +38,63 @@ var loginPage = sap.ui.view({
     viewName:"view.login",
     type:sap.ui.core.mvc.ViewType.JS
 });
-app.addPage(loginPage);
+alsApp.addPage(loginPage);
 
 var weeklyTasksPage = sap.ui.view({
     id:"weeklyTasksPage",
     viewName:"view.weeklyTasks",
     type:sap.ui.core.mvc.ViewType.XML
 });
-app.addPage(weeklyTasksPage);
+alsApp.addPage(weeklyTasksPage);
 
 var questionsPage = sap.ui.view({
     id:"questionsPage",
     viewName:"view.questions",
     type:sap.ui.core.mvc.ViewType.JS
 }).addStyleClass("question-view");
-app.addPage(questionsPage);
+alsApp.addPage(questionsPage);
 
+var submissionAlertPage = sap.ui.view({
+    id:"submissionAlertPage",
+    viewName:"view.submissionAlert",
+    type:sap.ui.core.mvc.ViewType.JS
+}).addStyleClass("question-view");
+alsApp.addPage(submissionAlertPage);
 
-////////Sensors////////////
+/* !!! BREAKS RUNTIME ON ANDROID !!!
 var speech = sap.ui.view({
     id:"speechPage",
     viewName:"view.speech",
     type:sap.ui.core.mvc.ViewType.JS
 });
-
-app.addPage(speech);
-
+app.addPage(speech); */
 
 var writing1 = sap.ui.view({
     id:"writingPage",
     viewName:"view.writing",
     type:sap.ui.core.mvc.ViewType.JS
 });
-app.addPage(writing1);
+alsApp.addPage(writing1);
 
-app.placeAt("content");
+var writing2 = sap.ui.view({
+    id:"writingPage2",
+    viewName:"view.writing2",
+    type:sap.ui.core.mvc.ViewType.JS
+});
+alsApp.addPage(writing2);
+
+var writing3 = sap.ui.view({
+    id:"writingPage3",
+    viewName:"view.writing3",
+    type:sap.ui.core.mvc.ViewType.JS
+});
+alsApp.addPage(writing3);
+
+var completedPage = sap.ui.view({
+    id:"completedPage",
+    viewName:"view.completed",
+    type:sap.ui.core.mvc.ViewType.JS
+});
+alsApp.addPage(completedPage);
+
+alsApp.placeAt("content");

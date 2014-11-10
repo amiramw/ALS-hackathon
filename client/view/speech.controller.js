@@ -17,7 +17,6 @@ sap.ui.controller("view.speech", {
 		var canvasWidth, canvasHeight;
 		var recIndex = 0;
 
-
 		this.gotStream = function(stream) {
 			inputPoint = audioContext.createGain();
 
@@ -41,34 +40,6 @@ sap.ui.controller("view.speech", {
 
 		}
 
-
-		this.initAudio = function()
-		{
-			if (!navigator.getUserMedia)
-				navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-			if (!navigator.cancelAnimationFrame)
-				navigator.cancelAnimationFrame = navigator.webkitCancelAnimationFrame || navigator.mozCancelAnimationFrame;
-			if (!navigator.requestAnimationFrame)
-				navigator.requestAnimationFrame = navigator.webkitRequestAnimationFrame || navigator.mozRequestAnimationFrame;
-
-			navigator.getUserMedia(
-					{
-						"audio": {
-							"mandatory": {
-								"googEchoCancellation": "false",
-								"googAutoGainControl": "false",
-								"googNoiseSuppression": "false",
-								"googHighpassFilter": "false"
-							},
-							"optional": []
-						},
-					}, this.gotStream, function(e) {
-						alert('Error getting audio');
-						console.log(e);
-					});
-
-		}
-		this.initAudio();
 
 //		RECORDER
 		var WORKER_PATH = 'js/recorderjs/recorderWorker.js';
@@ -262,6 +233,36 @@ sap.ui.controller("view.speech", {
 		file2.readAsDataURL(blob);
 
 
-	}
+	},
+    onAfterRendering : function(){
+        this.initAudio = function()
+        {
+            if (!navigator.getUserMedia)
+                navigator.getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+            if (!navigator.cancelAnimationFrame)
+                navigator.cancelAnimationFrame = navigator.webkitCancelAnimationFrame || navigator.mozCancelAnimationFrame;
+            if (!navigator.requestAnimationFrame)
+                navigator.requestAnimationFrame = navigator.webkitRequestAnimationFrame || navigator.mozRequestAnimationFrame;
 
+            navigator.getUserMedia(
+                {
+                    "audio": {
+                        "mandatory": {
+                            "googEchoCancellation": "false",
+                            "googAutoGainControl": "false",
+                            "googNoiseSuppression": "false",
+                            "googHighpassFilter": "false"
+                        },
+                        "optional": []
+                    }
+                }, this.gotStream, function(e) {
+                    alert('Error getting audio');
+                    console.log(e);
+                });
+
+        }
+        this.initAudio();
+
+
+    }
 });

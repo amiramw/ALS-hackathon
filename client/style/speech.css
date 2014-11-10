@@ -14,10 +14,25 @@
 		background: -moz-radial-gradient(center, ellipse cover, #ff0000 0%,rgba(211, 211, 211, 0) 75%,rgba(211, 211, 211, 0) 100%,rgba(125, 185, 232, 0) 100%); 
 		background: radial-gradient(center, ellipse cover, #ff0000 0%,rgba(211, 211, 211, 0) 75%,rgba(211, 211, 211, 0) 100%,rgba(125, 185, 232, 0) 100%);
 
-}	
+}
 
 
+#speechPage .finishBtn {
+    position: absolute;
+    bottom: 0;
+    background-color: #15BFCB;
+    border-top: 1px solid white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-family: Designio;
+    font-size: .7em;
 
+}
+#speechPage .centeredLayout {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 	
