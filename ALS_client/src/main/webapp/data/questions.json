@@ -1,0 +1,320 @@
+{
+  "questions": [
+    {
+      "id": "1",
+      "title": "Speech",
+      "answers": [
+        {
+          "title": "Normal speech processes",
+          "id": 0
+        },
+        {
+          "title": "Detectable speech disturbance",
+          "id": 1
+        },
+        {
+          "title": "Intelligible with repeating",
+          "id": 2
+        },
+        {
+          "title": "Speech combined with nonvocal communication",
+          "id": 3
+        },
+        {
+          "title": "Loss of useful speech",
+          "id": 4
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Salivation",
+      "answers": [
+        {
+          "title": "Normal",
+          "id": 5
+        },
+        {
+          "title": "Slight but definite excess of saliva in mouth; may have nighttime drooling",
+          "id": 6
+        },
+        {
+          "title": "Moderately excessive saliva; may have minimal drooling",
+          "id": 7
+        },
+        {
+          "title": "Marked excess of saliva with some drooling",
+          "id": 8
+        },
+        {
+          "title": "Marked drooling; requires constant tissue or handkerchief",
+          "id": 9
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Swallowing",
+      "answers": [
+        {
+          "title": "Normal eating habits",
+          "id": 10
+        },
+        {
+          "title": "Early eating problems-occasional choking",
+          "id": 11
+        },
+        {
+          "title": "Dietary consistency changes",
+          "id": 12
+        },
+        {
+          "title": "Needs supplemental tube feeding",
+          "id": 13
+        },
+        {
+          "title": "NPO (exclusively parenteral or enteral feeding)",
+          "id": 14
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Handwriting",
+      "answers": [
+        {
+          "title": "Normal",
+          "id": 15
+        },
+        {
+          "title": "Slow or sloppy; all words are legible",
+          "id": 16
+        },
+        {
+          "title": "Not all words are legible",
+          "id": 17
+        },
+        {
+          "title": "Able to grip pen but unable to write",
+          "id": 18
+        },
+        {
+          "title": "Unable to grip pen",
+          "id": 19
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Cutting food with gastrostomy",
+      "answers": [
+        {
+          "title": "Normal",
+          "id": 20
+        },
+        {
+          "title": "Somewhat slow and clumsy, but no help needed",
+          "id": 21
+        },
+        {
+          "title": "Can cut most foods, although clumsy and slow; some help needed",
+          "id": 22
+        },
+        {
+          "title": "Food must be cut by someone, but can still feed slowly",
+          "id": 23
+        },
+        {
+          "title": "Needs to be fed",
+          "id": 24
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Dressing and hygiene",
+      "answers": [
+        {
+          "title": "Normal function",
+          "id": 25
+        },
+        {
+          "title": "Independent and complete self-care with effort or decreased efficiency",
+          "id": 26
+        },
+        {
+          "title": "Intermittent assistance or substitute methods",
+          "id": 27
+        },
+        {
+          "title": "Needs attendant for self-care",
+          "id": 28
+        },
+        {
+          "title": "Total dependence",
+          "id": 29
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Turning in bed",
+      "answers": [
+        {
+          "title": "Normal",
+          "id": 30
+        },
+        {
+          "title": "Somewhat slow and clumsy, but no help needed",
+          "id": 31
+        },
+        {
+          "title": "Can turn alone or adjust sheets, but with great difficulty",
+          "id": 32
+        },
+        {
+          "title": "Can initiate, but not turn or adjust sheets alone",
+          "id": 33
+        },
+        {
+          "title": "Helpless",
+          "id": 34
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Walking",
+      "answers": [
+        {
+          "title": "Normal",
+          "id": 35
+        },
+        {
+          "title": "Early ambulation difficulties",
+          "id": 36
+        },
+        {
+          "title": "Walks with assistance",
+          "id": 37
+        },
+        {
+          "title": "Non-ambulatory functional movement only",
+          "id": 38
+        },
+        {
+          "title": "No purposeful leg movement",
+          "id": 39
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Climbing stairs",
+      "answers": [
+        {
+          "title": "Normal",
+          "id": 40
+        },
+        {
+          "title": "Slow",
+          "id": 41
+        },
+        {
+          "title": "Mild unsteadiness or fatigue",
+          "id": 42
+        },
+        {
+          "title": "Needs assistance",
+          "id": 43
+        },
+        {
+          "title": "Cannot do",
+          "id": 44
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Dyspnea",
+      "answers": [
+        {
+          "title": "None",
+          "id": 45
+        },
+        {
+          "title": "Occurs when walking",
+          "id": 46
+        },
+        {
+          "title": "Occurs with one or more of the following: eating, bathing, dressing (ADL)",
+          "id": 47
+        },
+        {
+          "title": "Occurs at rest, difficulty breathing when either sitting or lying",
+          "id": 48
+        },
+        {
+          "title": "Significant difficulty, considering using mechanical respiratory support",
+          "id": 49
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Orthopnea",
+      "answers": [
+        {
+          "title": "None",
+          "id": 50
+        },
+        {
+          "title": "Some difficulty sleeping at night due to shortness of breath. Does not routinely use more than two pillows",
+          "id": 51
+        },
+        {
+          "title": "Needs extra pillow in order to sleep (more than two)",
+          "id": 52
+        },
+        {
+          "title": "Can only sleep sitting up",
+          "id": 53
+        },
+        {
+          "title": "Unable to sleep",
+          "id": 54
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Respiratory insufficiency",
+      "answers": [
+        {
+          "title": "None",
+          "id": 55
+        },
+        {
+          "title": "Intermittent use of BiPAP",
+          "id": 56
+        },
+        {
+          "title": "Continuous use of BiPAP",
+          "id": 57
+        },
+        {
+          "title": "Continuous use of BiPAP during the night and day",
+          "id": 58
+        },
+        {
+          "title": "Invasive mechanical ventilation by intubation or tracheostomy",
+          "id": 59
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "How many years since onset of symptoms?"
+    }
+  ]
+}
