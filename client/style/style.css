@@ -104,48 +104,58 @@ textarea:-ms-input-placeholder {
 
 /********** Login page **********/
 
-#loginPage {
+#loginPage,
+#registerPage {
     background-color: #34DEEA;
 }
 
-#loginPage .sapMInputBase {
+#loginPage .sapMInputBase,
+#registerPage .sapMInputBase {
     padding: 0;
 }
 
-#loginPage .sapMInputBaseInner {
+#loginPage .sapMInputBaseInner,
+#registerPage .sapMInputBaseInner{
     border: none;
 }
 
-#loginPage .sapMLabel {
+#loginPage .sapMLabel,
+#registerPage .sapMLabel {
     color: white;
     font-size: 1em;
 }
 
-#loginPage .sapMRb .sapMLabel {
+#loginPage .sapMRb .sapMLabel,
+#registerPage .sapMRb .sapMLabel {
     font-weight: 100;
 }
 
-#loginPage .sapMRbB .sapMRbBOut {
+#loginPage .sapMRbB .sapMRbBOut,
+#registerPage .sapMRbB .sapMRbBOut {
     border: 1px solid white;
     background-color: transparent;
 }
 
-#loginPage .sapMRbSel .sapMRbBInn {
+#loginPage .sapMRbSel .sapMRbBInn,
+#registerPage .sapMRbSel .sapMRbBInn {
     background-color: white;
 }
 
-#loginPage .sapMSlt {
+#loginPage .sapMSlt,
+#registerPage .sapMSlt {
     border-radius: 5px;
     border: none;
 }
 
-#loginPage .centeredLayout, #submissionAlertPage .centeredLayout {
+#loginPage .centeredLayout,
+#registerPage .centeredLayout,
+#submissionAlertPage .centeredLayout {
     display: table;
     margin-left: auto;
     margin-right: auto;
 }
 
-#loginPage .sapMLabel#appNameLabel {
+.sapMLabel#appNameLabel {
     font-family: Designio;
     font-weight: normal;
     font-size: 2em;
@@ -153,20 +163,47 @@ textarea:-ms-input-placeholder {
     margin-left: 0.2em;
 }
 
-#loginPage .marginedLeft {
+#registerPage .marginedLeft {
     padding-left: 2.75em;
 }
 
-#appLayout {
+.sapMLabel#registerLabel {
     margin-top: 3em;
-    margin-bottom: 2.5em;
+    margin-bottom: 2em;
     padding-bottom: 0.5em;
     border-bottom: 1px solid white;
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 1.3em;
+    font-weight: 100;
+}
+
+#newHereLayout {
+    margin-top: 0.5em;
+}
+
+.sapMLabel#newHereLabel {
+    font-size: 1.1em;
+    font-weight: 100;
+}
+
+.sapMLabel#doRegisterLabel {
+    margin-left: 0.5em;
+    text-decoration: underline;
+    font-size: 1.1em;
+}
+
+.sapMLabel#disclaimerLabel {
+    margin-top: 3em;
+    font-size: 1em;
+    font-weight: 100;
 }
 
 #appLogoIcon {
-    color: white;
+    margin-top: 5em;
+    margin-bottom: 4em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 #usernameTextArea .sapMInputBaseInner {
@@ -183,6 +220,10 @@ textarea:-ms-input-placeholder {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border-bottom: 1px solid #f2f2f2;
+}
+
+#emailRegisterTextArea .sapMInputBaseInner {
+    border-radius: 5px;
 }
 
 #genderLabel {
@@ -207,14 +248,16 @@ textarea:-ms-input-placeholder {
     margin-bottom: 1em;
 }
 
-#contentLayout {
+#contentLayout,
+#registerContentLayout {
     position: absolute;
     top: 0;
     bottom: 3em;
     overflow: auto;
 }
 
-#loginPage .sapMLabel#loginLabel {
+.sapMLabel#loginLabel,
+.sapMLabel#registerFooterLabel {
     position: absolute;
     bottom: 0;
     background-color: #15BFCB;
