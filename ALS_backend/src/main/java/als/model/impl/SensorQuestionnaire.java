@@ -6,7 +6,7 @@ package als.model.impl;
  */
 
 import java.util.Date;
-import java.util.List;
+import java.util.Map;
 
 import als.model.IAnsweredQuestion;
 import als.util.QuestionnaireType;
@@ -16,7 +16,7 @@ public class SensorQuestionnaire extends AbstractQuestionnaire{
 
 	private Sensor mSensorType = null;
 	public SensorQuestionnaire(String mail, Date date, QuestionnaireType type,
-			List<IAnsweredQuestion> answers,Sensor sensor) {
+			Map<Integer, IAnsweredQuestion> answers,Sensor sensor) {
 		super(mail, date, QuestionnaireType.SENSOR, answers);
 		this.mSensorType = sensor;
 	}

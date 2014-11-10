@@ -7,9 +7,7 @@ package als.persistence.dao.jdbc;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
