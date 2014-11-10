@@ -7,7 +7,6 @@ sap.ui.controller("view.weeklyTasks", {
 */
 
 	onInit: function() {
-    this.app = sap.ui.getCore().byId("alsApp");
     sap.ui.getCore().byId(sap.ui.core.Fragment.createId(this.getView().sId, 'headerToolbarTitle')).setText('My HealthCare');
     sap.ui.getCore().byId(sap.ui.core.Fragment.createId(this.getView().sId, 'headerToolbarHomeButton')).setVisible(false);
 
@@ -31,14 +30,14 @@ sap.ui.controller("view.weeklyTasks", {
         var src = event.getSource();
         var path = src.getBindingContextPath();
         if(path==="/modelData/0"){
-            this.app.to("questionsPage");
+            alsApp.to("questionsPage");
         }
         if (path ==="/modelData/1")
         {
-        	this.app.to("speechPage");
+            alsApp.to("speechPage");
         }
         if (path ==="/modelData/2")
-        	this.app.to("writingPage");
+            alsApp.to("writingPage");
     }
 
 /**

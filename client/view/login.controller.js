@@ -16,7 +16,7 @@ sap.ui.controller("view.login", {
         }
         else if (view.email !== "" && view.email !== null && view.yearOfBirth !== null && view.yearOfBirth !== "" &&
             view.gender !== null && view.onsetMonth !== null && view.onsetYear !== null) {
-            app.to("weeklyTasksPage");
+            alsApp.to("weeklyTasksPage");
         }
         else {
             sap.m.MessageBox.alert('Please fill in all the details before logging in', {

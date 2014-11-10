@@ -26,13 +26,13 @@ sap.ui.controller("view.writing", {
 	 * @memberOf view.writing
 	 */
 
-	
+
 	onAfterRendering: function() {
-		
+
 		this.Drawing = new RecordableDrawing("houseCanvas", "images/house2.png");
 		this.Drawing.startRecording();
-			
-		
+
+
 	},
 
 
@@ -43,40 +43,40 @@ sap.ui.controller("view.writing", {
 //	onExit: function() {
 
 //	}
-	
-	
+
+
 onNext: function (evt, controller){
-	
+
 	var serialized=null;
 	var drawing = controller.Drawing;
 	drawing.stopRecording();
-	
+
 	serialized = serializeDrawing(drawing);
-	
+
 	if (serialized != null)
 	{
 		window.jsonHouse = "[{\"writingHouse\":" + serialized + "}]";
 		alert(serialized);
-	} else 
+	} else
 	{
 		window.jsonHouse = "";
 	}
-	
 
-	drawing.clearCanvas();	
+
+	drawing.clearCanvas();
 	drawing.startRecording();
-	app.to("writingPage2");
+		alsApp.to("writingPage2");
 },
 
 onClear: function(evt, controller){
 	//when user press Clear button we need to clear the canvas and start recording
-	
+
 	// var page = sap.ui.getCore().byId("p");
 	var r = controller.Recorder;
 	var drawing = controller.Drawing;
-	
+
 	drawing.stopRecording();
-	drawing.clearCanvas();	
+	drawing.clearCanvas();
 	drawing.startRecording();
 
 },

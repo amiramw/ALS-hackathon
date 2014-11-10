@@ -22,7 +22,7 @@ sap.ui.controller("view.submissionAlert", {
     },
 
     startNewTask : function(){
-        app.to("questionsPage");
+        alsApp.to("questionsPage");
     }
 
 

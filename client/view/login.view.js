@@ -7,8 +7,6 @@ sap.ui.jsview("view.login", {
     onsetMonth: null,
     onsetYear: null,
 
-    app: sap.ui.getCore().byId("alsApp"),
-
     maleRadioButton: null,
     femaleRadioButton: null,
 

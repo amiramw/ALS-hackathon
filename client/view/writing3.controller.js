@@ -68,7 +68,7 @@ sap.ui.controller("view.writing3", {
 
 		drawing.clearCanvas();	
 		drawing.startRecording();
-		app.to("weeklyTasksPage");
+		alsApp.to("weeklyTasksPage");
 	},
 
 	onClear: function(evt, controller){
