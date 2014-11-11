@@ -94,4 +94,6 @@ alsApp.addPage(completedPage);
 
 alsApp.SERVER_URL = 'http://iltlvwssc793.emea.global.corp.sap:8080/ALS_backend';
 
+alsApp.RELATIVE_SERVER_URL = '/ALS_backend/test-me';
+
 alsApp.placeAt("content");
