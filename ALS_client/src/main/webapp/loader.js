@@ -76,13 +76,13 @@ var handwritingpage = sap.ui.view({
 });
 alsApp.addPage(handwritingpage);
 
-/* !!! BREAKS RUNTIME ON ANDROID !!!
+
 var speech = sap.ui.view({
     id:"speechPage",
     viewName:"view.speech",
     type:sap.ui.core.mvc.ViewType.JS
 });
-app.addPage(speech); */
+alsApp.addPage(speech);
 
 
 var completedPage = sap.ui.view({
@@ -93,5 +93,7 @@ var completedPage = sap.ui.view({
 alsApp.addPage(completedPage);
 
 alsApp.SERVER_URL = 'http://iltlvwssc793.emea.global.corp.sap:8080/ALS_backend';
+
+alsApp.RELATIVE_SERVER_URL = '/ALS_backend/test-me';
 
 alsApp.placeAt("content");

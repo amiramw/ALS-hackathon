@@ -31,25 +31,8 @@ sap.ui.jsview("view.speech", {
             showHomeButton: true
         });
 
-		var task = new sap.m.Label({
-			text: "Tap record and say the following sentence:",
-			textAlign: 'Center',
-			width: '100%'
-		});
-
-		var sentenceToSay = new sap.m.Label({
-			text: "'The quick brown fox jumps over the lazy dog'",
-			textAlign: 'Center',
-			width: '100%'
-		}).addStyleClass("subtitle");
-
-        var tapLayout = new sap.ui.layout.VerticalLayout('tapTestLayout', {
-            content: [task,sentenceToSay],
-            width: '100%'
-
-        }).addStyleClass("centeredLayout");
-
 		var micImg = new sap.ui.commons.Image("micImg").addStyleClass("centeredLayout");
+		//micImg.setSrc("images/record.png");
 		micImg.setSrc("images/mic128.png");
 		micImg.addStyleClass("centered");
 		micImg.addStyleClass("size5");
@@ -58,21 +41,29 @@ sap.ui.jsview("view.speech", {
 		})
 
 
-		/*        var Icon = new sap.ui.core.Icon ("micIcon");
-        Icon.setSrc("sap-icon://microphone");
-        Icon.addStyleClass("size5");
-        Icon.addStyleClass("centered");
-        Icon.attachPress(function(){
-        	toggleRecording(this);
-        });
-		 */
+		var headerLayout = new sap.ui.layout.HorizontalLayout({
+			content: [
+			          new sap.m.Label("",{"text":"Tap record and say the following sentence:"}).addStyleClass("question_title"),
+			          ]
+		}).addStyleClass('questions_header');
 
-		//var finishBtn = new sap.m.Button("finishSpeech",{text:"Finish"});
-		//finishBtn.attachPress(oController.onPress);
+		var sentence = new sap.ui.layout.HorizontalLayout({
+			content: [
+			          new sap.m.Label("",{"text":"'The quick brown fox jumps over the lazy dog'"}).addStyleClass("question_title"),
+			          ]
+		}).addStyleClass('questions_header');
+		
+			
+		var h3 = new sap.ui.layout.VerticalLayout('mic', {content: [headerLayout, sentence, micImg]}
+		).addStyleClass("vizMic"); 
+		
 
-        var link = new sap.ui.commons.Link("link_1",{
-           	text:"Temporary link for testing recorded audio"
-      	});
+        
+		//Temporary image just for testing recorded audio  (remove it!)
+        var link = new sap.ui.core.HTML({content:   " <a id='link_1' href='#'><img width=30% id='downloadImg' src='images/Stop.png'></a>"});
+        
+        var temp = new sap.m.Label("",{"text":"Temporary image just for testing recorded audio"});
+       
 
         var finishLabel = new sap.m.Label('finish', {
             text: "Finish",
@@ -88,7 +79,7 @@ sap.ui.jsview("view.speech", {
 
 
         var contentLayout = new sap.ui.layout.VerticalLayout('speechContentLayout', {
-            content: [header, tapLayout, micImg,link,footer],
+            content: [header, h3,link,temp, footer],
             width: '100%'
         });
 		return contentLayout;
