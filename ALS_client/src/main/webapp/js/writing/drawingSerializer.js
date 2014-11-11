@@ -4,7 +4,7 @@
 
 function serializeDrawing (drawingObj)
 {
-	if (drawingObj.recordings.length == 0)
+	if (!drawingObj || drawingObj.recordings.length == 0)
 		return null;
 	
 	var modifiedRecordings = new Array();
@@ -31,6 +31,16 @@ function serializeRecording (recording)
 	}
 	
 	return recordingWrp;
+}
+
+function drawingIsEmpty(drawingObj){
+	var res = true;
+	for (var i = 0; i < drawingObj.recordings.length; i++)
+	{
+		if (drawingObj.recordings[i].actionsSet) 
+			return false;
+		
+	}
 }
 
 function serializeActionSet (actionSet)

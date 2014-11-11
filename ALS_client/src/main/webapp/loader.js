@@ -68,6 +68,14 @@ var submissionAlertPage = sap.ui.view({
 }).addStyleClass("question-view");
 alsApp.addPage(submissionAlertPage);
 
+
+var handwritingpage = sap.ui.view({
+    id:"writingPage",
+    viewName:"view.handwriting",
+    type:sap.ui.core.mvc.ViewType.JS
+});
+alsApp.addPage(handwritingpage);
+
 /* !!! BREAKS RUNTIME ON ANDROID !!!
 var speech = sap.ui.view({
     id:"speechPage",
@@ -76,26 +84,6 @@ var speech = sap.ui.view({
 });
 app.addPage(speech); */
 
-var writing1 = sap.ui.view({
-    id:"writingPage",
-    viewName:"view.writing",
-    type:sap.ui.core.mvc.ViewType.JS
-});
-alsApp.addPage(writing1);
-
-var writing2 = sap.ui.view({
-    id:"writingPage2",
-    viewName:"view.writing2",
-    type:sap.ui.core.mvc.ViewType.JS
-});
-alsApp.addPage(writing2);
-
-var writing3 = sap.ui.view({
-    id:"writingPage3",
-    viewName:"view.writing3",
-    type:sap.ui.core.mvc.ViewType.JS
-});
-alsApp.addPage(writing3);
 
 var completedPage = sap.ui.view({
     id:"completedPage",
