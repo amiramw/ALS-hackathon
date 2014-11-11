@@ -7,17 +7,17 @@ import java.util.List;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 
-import als.model.ITest;
-import als.persistence.dao.ITestDAO;
+import als.model.ITask;
+import als.persistence.dao.ITaskDAO;
 
-public class TestDAO extends BaseCon implements ITestDAO {
+public class TaskDAO extends BaseCon implements ITaskDAO {
 
 	@Override
-	public List<ITest> getLastSubmittedTests(String email) {
-		List<ITest> tests = null;
+	public List<ITask> getLastSubmittedTasks(String email) {
+		List<ITask> tests = null;
 		try {
 			String SQL = "select SensorType, SubmittionDate from tbl_sensor 	";
-			tests = jdbcTemplateObject.query(SQL, new TestMapper());
+			tests = jdbcTemplateObject.query(SQL, new TaskMapper());
 		} catch (DataAccessException exp) {
 			System.out.println("Faile to list all Patients reason:"
 					+ exp.getLocalizedMessage());
@@ -25,10 +25,10 @@ public class TestDAO extends BaseCon implements ITestDAO {
 		return tests;
 	}
 
-	private class TestMapper implements RowMapper<ITest> {
-		public als.model.impl.Test mapRow(ResultSet rs, int rowNum)
+	private class TaskMapper implements RowMapper<ITask> {
+		public als.model.impl.Task mapRow(ResultSet rs, int rowNum)
 				throws SQLException {
-			als.model.impl.Test test = new als.model.impl.Test(
+			als.model.impl.Task test = new als.model.impl.Task(
 					rs.getString("SensorType"), rs.getDate("SubmitionDate"));
 			return test;
 		}

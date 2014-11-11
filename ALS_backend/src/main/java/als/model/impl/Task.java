@@ -7,23 +7,23 @@ import java.util.Date;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.CalendarSerializer;
 
-import als.model.ITest;
+import als.model.ITask;
 
-public class Test implements ITest, Serializable {
+public class Task implements ITask, Serializable {
 	
 	private static final long serialVersionUID = -7788619177798333713L;
 			
 	private String mId;
 	private Calendar mLastSubmittedDate;
 
-	public Test(String id, Date lastSubmittedDate){
-		this.mId  = id;
+	public Task(String taskId, Date lastSubmittedDate){
+		this.mId  = taskId;
 		this.mLastSubmittedDate = Calendar.getInstance();
 		this.mLastSubmittedDate.setTime(lastSubmittedDate) ;
 	}
 	
 	@Override
-	public String getId() {
+	public String getTaskId() {
 		return mId;
 	}
 

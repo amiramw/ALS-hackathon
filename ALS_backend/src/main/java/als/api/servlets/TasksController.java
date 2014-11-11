@@ -27,31 +27,31 @@ import org.springframework.web.bind.annotation.ResponseBody;
  
 import org.springframework.web.bind.annotation.RestController;
 
-import als.model.ITest;
-import als.model.impl.Test;
+import als.model.ITask;
+import als.model.impl.Task;
 
 
 /**
  * Handles requests for the Employee service.
  */
 @RestController
-public class TestsController {
+public class TasksController {
      
          
-    @RequestMapping(value = "/lastSubmittedTests/{email}", method = RequestMethod.GET)
-    public Collection<ITest> getLastSubmittedTests(@PathVariable("email") String email) {
+    @RequestMapping(value = "/lastSubmittedTasks/{email}", method = RequestMethod.GET)
+    public Collection<ITask> getLastSubmittedTasks(@PathVariable("email") String email) {
         
         return null;
     }
     
-    @RequestMapping(value = "/lastSubmittedTests/dummy/{email}", method = RequestMethod.GET)
-    public Collection<ITest> getLastSubmittedTestsDummy(@PathVariable("email") String email) {
+    @RequestMapping(value = "/lastSubmittedTasks/dummy/{email}", method = RequestMethod.GET)
+    public Collection<ITask> getLastSubmittedTasksDummy(@PathVariable("email") String email) {
         System.out.println(email);
-    	Collection<ITest> tests = new ArrayList<ITest>();
-        tests.add(new Test("1" ,new Date() ));
-        tests.add(new Test("2" ,new Date(System.currentTimeMillis()) ));
-        tests.add(new Test("3" ,new Date(System.currentTimeMillis()) ));
-        tests.add(new Test("4" ,new Date(System.currentTimeMillis()) ));
+    	Collection<ITask> tests = new ArrayList<ITask>();
+        tests.add(new Task("1" ,new Date() ));
+        tests.add(new Task("2" ,new Date(System.currentTimeMillis()) ));
+        tests.add(new Task("3" ,new Date(System.currentTimeMillis()) ));
+        tests.add(new Task("4" ,new Date(System.currentTimeMillis()) ));
         return tests;
     }
      
