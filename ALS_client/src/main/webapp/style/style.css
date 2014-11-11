@@ -286,7 +286,8 @@ textarea:-ms-input-placeholder {
 #weeklyTasksPage .sapMLabel{
     color: #4d4d4d;
     font-family: SegoeUI;
-    font-weight: normal
+    font-weight: normal;
+    overflow : visible;
 }
 #weeklyTasksPage .sapMLIB{
     border-bottom: 1px solid #CCCCCC;
