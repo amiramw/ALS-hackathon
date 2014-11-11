@@ -76,13 +76,13 @@ var handwritingpage = sap.ui.view({
 });
 alsApp.addPage(handwritingpage);
 
-/* !!! BREAKS RUNTIME ON ANDROID !!!
+
 var speech = sap.ui.view({
     id:"speechPage",
     viewName:"view.speech",
     type:sap.ui.core.mvc.ViewType.JS
 });
-app.addPage(speech); */
+alsApp.addPage(speech);
 
 
 var completedPage = sap.ui.view({

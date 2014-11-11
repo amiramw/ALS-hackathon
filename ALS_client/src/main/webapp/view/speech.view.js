@@ -50,7 +50,7 @@ sap.ui.jsview("view.speech", {
         }).addStyleClass("centeredLayout");
 
 		var micImg = new sap.ui.commons.Image("micImg").addStyleClass("centeredLayout");
-		micImg.setSrc("images/mic128.png");
+		micImg.setSrc("images/record.png");
 		micImg.addStyleClass("centered");
 		micImg.addStyleClass("size5");
 		micImg.attachPress(function(){
@@ -80,7 +80,8 @@ sap.ui.jsview("view.speech", {
             textAlign: 'Center'
         }).attachBrowserEvent('click', oController.onPress);
 
-        var footer = sap.ui.jsfragment('FooterToolbar', new sap.m.Label('finishLabel', {
+
+        var footer = sap.ui.jsfragment(this.getId(),'FooterToolbar', new sap.m.Label('finishLabel', {
             text: "Finish",
             width: "100%",
             textAlign: 'Center'
