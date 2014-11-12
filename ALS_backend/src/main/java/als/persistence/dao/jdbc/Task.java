@@ -10,7 +10,7 @@ import org.springframework.jdbc.core.RowMapper;
 import als.model.ITask;
 import als.persistence.dao.ITaskDAO;
 
-public class TaskDAO extends BaseCon implements ITaskDAO {
+public class Task extends BaseCon implements ITaskDAO {
 
 	@Override
 	public List<ITask> getLastSubmittedTasks(String email) {

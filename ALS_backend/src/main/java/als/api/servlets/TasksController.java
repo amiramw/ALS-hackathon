@@ -16,6 +16,7 @@ import java.util.Set;
 
 
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,8 @@ import als.model.impl.Task;
  */
 @RestController
 public class TasksController {
-     
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(TasksController.class);
          
     @RequestMapping(value = "/lastSubmittedTasks/{email}", method = RequestMethod.GET)
     public Collection<ITask> getLastSubmittedTasks(@PathVariable("email") String email) {
