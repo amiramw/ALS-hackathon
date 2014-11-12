@@ -16,7 +16,7 @@ sap.ui.jsview("view.login", {
             height: '3em'
         }).addStyleClass('centeredLayout');
 
-        var emailRegisterTextArea = new sap.m.TextArea('emailRegisterTextArea', {
+        var emailRegisterInput = new sap.m.Input('emailRegisterInput', {
             placeholder: 'Email',
             value: localStorage.getItem('alsEmailRegister'),
             width: '17em',
@@ -27,20 +27,12 @@ sap.ui.jsview("view.login", {
             }
         });
 
-        var newHereLabel = new sap.m.Label('newHereLabel', {
-            text: "First use?"
-        });
-
-        var doRegisterLabel = new sap.m.Label('doRegisterLabel', {
-            text: "Register"
-        }).attachBrowserEvent('click', controller.onRegister);
-
-        var newHereLayout = new sap.ui.layout.HorizontalLayout('newHereLayout', {
-            content: [newHereLabel, doRegisterLabel]
-        }).addStyleClass('centeredLayout');
+        var firstUseLabel = new sap.m.Label('firstUseLabel', {
+            text: "First use? Register"
+        }).addStyleClass('centeredLayout').attachBrowserEvent('click', controller.onRegister);
 
         var registerDetailsLayout = new sap.ui.layout.VerticalLayout('registerDetailsLayout', {
-            content: [emailRegisterTextArea, newHereLayout]
+            content: [emailRegisterInput, firstUseLabel]
         }).addStyleClass('centeredLayout');
 
         var disclaimerLabel = new sap.m.Label('disclaimerLabel', {

@@ -23,6 +23,10 @@ sap.ui.controller("view.register", {
                 title: 'Details Missing'
             });
         }
+    },
+
+    onAlreadyRegistered: function() {
+        alsApp.back();
     }
 
 });

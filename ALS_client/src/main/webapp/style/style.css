@@ -34,19 +34,19 @@ html, body, #content {
     height: 100%;
 }
 
-textarea::-webkit-input-placeholder {
+Input::-webkit-input-placeholder {
     font-style: normal !important;
     color: #BBBBBB !important;
 }
-textarea:-moz-placeholder {
+Input:-moz-placeholder {
     font-style: normal !important;
     color: #BBBBBB !important;
 }
-textarea::-moz-placeholder {
+Input::-moz-placeholder {
     font-style: normal !important;
     color: #BBBBBB !important;
 }
-textarea:-ms-input-placeholder {
+Input:-ms-input-placeholder {
     font-style: normal !important;
     color: #BBBBBB !important;
 }
@@ -112,6 +112,7 @@ textarea:-ms-input-placeholder {
 #loginPage .sapMInputBase,
 #registerPage .sapMInputBase {
     padding: 0;
+    height: 2.5em;
 }
 
 #loginPage .sapMInputBaseInner,
@@ -163,10 +164,6 @@ textarea:-ms-input-placeholder {
     margin-left: 0.2em;
 }
 
-#registerPage .marginedLeft {
-    padding-left: 2.75em;
-}
-
 .sapMLabel#registerLabel {
     margin-top: 3em;
     margin-bottom: 2em;
@@ -181,47 +178,46 @@ textarea:-ms-input-placeholder {
     margin-top: 0.5em;
 }
 
-.sapMLabel#newHereLabel {
-    font-size: 1.1em;
-    font-weight: 100;
-}
-
-.sapMLabel#doRegisterLabel {
-    margin-left: 0.5em;
-    text-decoration: underline;
+.sapMLabel#firstUseLabel {
+    margin-top: 1em;
     font-size: 1.1em;
 }
 
 .sapMLabel#disclaimerLabel {
-    position: absolute;
-    bottom: 2em;
+    margin-top: 15em;
+    font-size: 1em;
+    font-weight: 100;
+}
+
+.sapMLabel#alreadyRegisteredLabel {
+    margin-top: 3em;
     font-size: 1em;
     font-weight: 100;
 }
 
 #appLogoIcon,
 #appLogoIconRegister {
-    margin-top: 4em;
+    margin-top: 3em;
     margin-bottom: 3em;
 }
 
-#usernameTextArea .sapMInputBaseInner {
+#usernameInput .sapMInputBaseInner {
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
     border-bottom: 1px solid #f2f2f2;
 }
 
-#emailTextArea .sapMInputBaseInner {
+#emailInput .sapMInputBaseInner {
     border-bottom: 1px solid #f2f2f2;
 }
 
-#yearOfBirthTextArea .sapMInputBaseInner {
+#yearOfBirthInput .sapMInputBaseInner {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     border-bottom: 1px solid #f2f2f2;
 }
 
-#emailRegisterTextArea .sapMInputBaseInner {
+#emailRegisterInput .sapMInputBaseInner {
     border-radius: 5px;
 }
 

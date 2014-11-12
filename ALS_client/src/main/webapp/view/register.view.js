@@ -33,8 +33,8 @@ sap.ui.jsview("view.register", {
             content: [appLogoIconRegister]
         }).addStyleClass('centeredLayout');
 
-        var usernameTextArea = new sap.m.TextArea('usernameTextArea', {
-            placeholder: 'Name (Optional)',
+        var usernameInput = new sap.m.Input('usernameInput', {
+            placeholder: 'Name (optional)',
             value: localStorage.getItem('alsUsername'),
             width: '17em',
             rows: 1,
@@ -44,7 +44,7 @@ sap.ui.jsview("view.register", {
             }
         });
 
-        var emailTextArea = new sap.m.TextArea('emailTextArea', {
+        var emailInput = new sap.m.Input('emailInput', {
             placeholder: 'Email',
             value: localStorage.getItem('alsEmail'),
             width: '17em',
@@ -55,20 +55,17 @@ sap.ui.jsview("view.register", {
             }
         });
 
-        var yearOfBirthTextArea = new sap.m.TextArea('yearOfBirthTextArea', {
+        var yearOfBirthInput = new sap.m.Input('yearOfBirthInput', {
             placeholder: 'Year of birth',
             value: localStorage.getItem('alsYearOfBirth'),
             width: '17em',
             rows: 1,
+            type: 'Number',
             liveChange: function(event) {
                 that.yearOfBirth = event.getSource().getValue();
                 localStorage.setItem('alsYearOfBirth', that.yearOfBirth);
             }
         });
-
-        var detailsLayout = new sap.ui.layout.VerticalLayout('detailsLayout', {
-            content: [usernameTextArea, emailTextArea, yearOfBirthTextArea]
-        }).addStyleClass('centeredLayout');
 
         var genderLabel = new sap.m.Label('genderLabel', {
             text: 'Gender'
@@ -100,7 +97,7 @@ sap.ui.jsview("view.register", {
 
         var genderLayout = new sap.ui.layout.HorizontalLayout('genderLayout', {
             content: [genderLabel, this.maleRadioButton, this.femaleRadioButton]
-        }).addStyleClass('marginedLeft');
+        });
 
         var dateOfOnsetLabel = new sap.m.Label('dateOfOnsetLabel', {
             text: 'When were you first diagnosed?'
@@ -138,9 +135,15 @@ sap.ui.jsview("view.register", {
             content: [dateOfOnsetMonthSelect, dateOfOnsetYearSelect]
         });
 
-        var dateOfOnsetLayout = new sap.ui.layout.VerticalLayout('dateOfOnsetLayout', {
-            content: [dateOfOnsetLabel, dateOfOnsetSelectLayout]
-        }).addStyleClass('marginedLeft');
+        var alreadyRegisteredLabel = new sap.m.Label('alreadyRegisteredLabel', {
+            text: "Already registered? Login",
+            width: "100%",
+            textAlign: 'Center'
+        }).attachBrowserEvent('click', controller.onAlreadyRegistered);
+
+        var detailsLayout = new sap.ui.layout.VerticalLayout('detailsLayout', {
+            content: [usernameInput, emailInput, yearOfBirthInput, genderLayout, dateOfOnsetLabel, dateOfOnsetSelectLayout, alreadyRegisteredLabel]
+        }).addStyleClass('centeredLayout');
 
         var registerFooterLabel = new sap.m.Label('registerFooterLabel', {
             text: "Register",
@@ -149,7 +152,7 @@ sap.ui.jsview("view.register", {
         }).attachBrowserEvent('click', controller.onRegister);
 
         var registerContentLayout = new sap.ui.layout.VerticalLayout('registerContentLayout', {
-            content: [registerLayout, detailsLayout, genderLayout, dateOfOnsetLayout],
+            content: [registerLayout, detailsLayout],
             width: '100%'
         });
 
