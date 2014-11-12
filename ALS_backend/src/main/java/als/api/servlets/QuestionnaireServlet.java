@@ -33,8 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class QuestionnaireServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(QuestionnaireServlet.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(QuestionnaireServlet.class);
 
 
 	@Override

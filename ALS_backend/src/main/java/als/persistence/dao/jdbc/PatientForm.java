@@ -5,6 +5,7 @@ package als.persistence.dao.jdbc;
  *
  */
 
+import java.util.Random;
 import java.util.UUID;
 
 import org.springframework.dao.DataAccessException;
@@ -28,7 +29,7 @@ class PatientForm extends PatientQuestionnaire implements IPatientFormDAO{
 				}
 
 				
-				String ext_id = UUID.randomUUID().toString();
+				long ext_id = new Random().nextLong(); // UUID.randomUUID().toString();
 				
 				IAnsweredQuestion def = new Answer();
 				
