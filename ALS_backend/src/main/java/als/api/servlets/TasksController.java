@@ -17,8 +17,11 @@ import java.util.Set;
 
 
 
+
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +33,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import als.model.ITask;
 import als.model.impl.Task;
+import als.persistence.dao.IPatientFormDAO;
+import als.persistence.dao.IPatientSensorDAO;
+import als.util.AppContextFactory;
+import als.util.AppCtx;
 
 
 /**
@@ -43,7 +50,15 @@ public class TasksController {
     @RequestMapping(value = "/lastSubmittedTasks/{email}", method = RequestMethod.GET)
     public Collection<ITask> getLastSubmittedTasks(@PathVariable("email") String email) {
         
-        return null;
+    	ApplicationContext ctx = AppContextFactory.getInstance().getContext(
+				AppCtx.JDBC);
+		IPatientSensorDAO sensorDAO = (IPatientSensorDAO) ctx.getBean("PatientSensorDAO");
+		IPatientFormDAO formDAO = (IPatientFormDAO) ctx.getBean("PatientFormDAO");
+		Collection<ITask> tests = new ArrayList<ITask>();
+    	tests.addAll(formDAO.getLastSubmitedQuestionnaires(email));
+    	tests.addAll(sensorDAO.getLastSubmitedQuestionnaires(email));
+    	
+        return tests;
     }
     
     @RequestMapping(value = "/lastSubmittedTasks/dummy/{email}", method = RequestMethod.GET)
