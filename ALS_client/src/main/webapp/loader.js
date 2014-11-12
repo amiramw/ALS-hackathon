@@ -76,12 +76,15 @@ var handwritingpage = sap.ui.view({
 });
 alsApp.addPage(handwritingpage);
 
+
 /*var speech = sap.ui.view({
-    id:"speechPage",
-    viewName:"view.speech",
-    type:sap.ui.core.mvc.ViewType.JS
-});
+	    id:"speechPage",
+	    viewName:"view.speechMp3",
+	    type:sap.ui.core.mvc.ViewType.JS
+	});
 alsApp.addPage(speech);*/
+
+
 
 var completedPage = sap.ui.view({
     id:"completedPage",
