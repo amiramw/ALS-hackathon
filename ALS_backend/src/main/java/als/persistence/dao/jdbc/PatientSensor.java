@@ -33,7 +33,7 @@ class PatientSensor extends PatientQuestionnaire implements IPatientSensorDAO{
 					return;
 				}
 				
-				//String ext_id = UUID.randomUUID().toString();
+				
 				long ext_id = new Random().nextLong();
 				LobHandler lobHandler = new DefaultLobHandler();
 				
