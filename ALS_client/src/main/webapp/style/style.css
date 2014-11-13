@@ -292,9 +292,10 @@ Input:-ms-input-placeholder {
 
 
 /* Setting css for list rows*/
-#weeklyTasksPage .taskIcon {
+#weeklyTasksPage .taskIcon.sapMImg {
     margin: 0.5em;
     width: 3%;
+    height: 2.5em;
     align-self: stretch;
    /* align-content: space-around;*/
 }
