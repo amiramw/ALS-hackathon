@@ -1,7 +1,6 @@
 package als.api.servlets;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,7 +29,6 @@ import als.util.AppContextFactory;
 import als.util.AppCtx;
 import als.util.QuestionnaireType;
 
-
 @RestController
 public class SensorController {
 
@@ -38,17 +36,14 @@ public class SensorController {
 			.getLogger(SensorController.class);
 
 	@RequestMapping(value = "/sensor/dummy", method = RequestMethod.POST)
-	public String submitSensorDummy(
-			@ModelAttribute("sensorUploadForm") SensorProxy sensorProxy) {
+	public String submitSensorDummy(@ModelAttribute("sensorUploadForm") SensorProxy sensorProxy) {
 		MultipartFile data = sensorProxy.getData();
 
-		
 		return "Sensor data accepted";
 	}
 
 	@RequestMapping(value = "/sensor", method = RequestMethod.POST)
-	public String submitSensor(
-			@ModelAttribute("sensorUploadForm") SensorProxy sensorProxy)
+	public String submitSensor(	@ModelAttribute("sensorUploadForm") SensorProxy sensorProxy)
 			throws IOException {
 
 		MultipartFile data = sensorProxy.getData();
@@ -72,21 +67,21 @@ public class SensorController {
 		return "Sensor data accepted";
 	}
 
-	
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "No data was submitted")
 	@ExceptionHandler(NullPointerException.class)
-	public void handleNullPointerException(HttpServletRequest req, Exception exception) {
+	public void handleNullPointerException(HttpServletRequest req,
+			Exception exception) {
 		LOGGER.error("Request: " + req.getRequestURL() + " raised  "
 				+ exception);
-		
+
 	}
-	
+
 	@ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "No data was submitted")
 	@ExceptionHandler(IOException.class)
 	public void handleIOException(HttpServletRequest req, Exception exception) {
 		LOGGER.error("Request: " + req.getRequestURL() + " raised  "
 				+ exception);
-		
+
 	}
 
 }

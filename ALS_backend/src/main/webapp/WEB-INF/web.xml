@@ -28,9 +28,19 @@
 		<servlet-name>TestMe</servlet-name>
 		<servlet-class>als.api.servlets.TestMe</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>Register</servlet-name>
+		<servlet-class>als.api.servlets.RegisterServlet</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>TestMe</servlet-name>
 		<url-pattern>/test-me/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>Register</servlet-name>
+		<url-pattern>/register/*</url-pattern>
 	</servlet-mapping>
 	
 	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
