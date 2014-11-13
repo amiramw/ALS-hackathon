@@ -50,7 +50,7 @@ alsApp.addPage(registerPage);
 var weeklyTasksPage = sap.ui.view({
     id:"weeklyTasksPage",
     viewName:"view.weeklyTasks",
-    type:sap.ui.core.mvc.ViewType.XML
+    type:sap.ui.core.mvc.ViewType.JS
 });
 alsApp.addPage(weeklyTasksPage);
 
