@@ -54,8 +54,10 @@ sap.ui.jsview("view.weeklyTasks", {
                   }).addStyleClass("dateStatus")
               ]
             }).addStyleClass("layout")
-          ]
-        });
+          ],
+          type: "Active"
+
+        }).attachPress(oController.onPress);
 
         //Bind the list to the model data
         list.bindAggregation("items", {
