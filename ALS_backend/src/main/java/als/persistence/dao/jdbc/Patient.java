@@ -38,7 +38,7 @@ class Patient extends BaseCon implements
 			
 			String SQL = "insert into tbl_patient (	 " + "email," + "LastName,"
 					+ "FirstName," + "CreationDate," + "Gender," + "BirthDate,"
-					+ "DiagnoseDate) values ( ?, ?, ?, ?, ?,? ,?)";
+					+ "DiagnoseDate) values (?, ?, ?, ?, ?, ? ,?)";
 			jdbcTemplateObject.update(SQL, patient.getEmail(),
 					patient.getLastName(), patient.getFirstName(),
 					patient.getCreationDate(), patient.getGender().getValue(),

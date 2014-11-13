@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import als.api.model.SensorProxy;
 import als.model.IAnsweredQuestion;
@@ -37,8 +36,6 @@ public class SensorController {
 
 	@RequestMapping(value = "/sensor/dummy", method = RequestMethod.POST)
 	public String submitSensorDummy(@ModelAttribute("sensorUploadForm") SensorProxy sensorProxy) {
-		MultipartFile data = sensorProxy.getData();
-
 		return "Sensor data accepted";
 	}
 
