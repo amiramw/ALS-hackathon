@@ -1,21 +1,9 @@
 package als.api.servlets;
 
-import als.model.IPatient;
-import als.persistence.dao.IPatientDAO;
-import als.util.Gender;
-
-
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Calendar;
-	
-
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -26,29 +14,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 
-import als.api.model.AnsweredQuestion;
 import als.api.model.PatientProxy;
-import als.api.model.Questionnaire;
-import als.model.IAnsweredQuestion;
-import als.model.impl.Answer;
-import als.model.impl.FormQuestionnaire;
+import als.model.IPatient;
 import als.model.impl.Patient;
-import als.persistence.dao.IPatientFormDAO;
+import als.persistence.dao.IPatientDAO;
 import als.util.AppContextFactory;
 import als.util.AppCtx;
-import als.util.QuestionnaireType;
+import als.util.HTTPUtil;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 public class RegisterServlet extends HttpServlet 
 {
-	private static String userName;
-	private static String email;
-	private static int yearOfBirth;
-	private static int numOfYearsSinceDiagnose;
-	private static Gender gender;
-	
+	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(RegisterServlet.class);
 	
@@ -75,10 +54,7 @@ public class RegisterServlet extends HttpServlet
 		// 1. get received JSON data from request
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(
 				request.getInputStream()))) {
-			String json = "";
-			if (br != null) {
-				json = br.readLine();
-			}
+			String json = HTTPUtil.bodyToString(br);
 
 			// 2. initiate jackson mapper
 			ObjectMapper mapper = new ObjectMapper();
@@ -105,7 +81,7 @@ public class RegisterServlet extends HttpServlet
 			
 			response.setStatus(200);
 		} catch (Exception e) {
-			LOGGER.error("Exception occured: " + e);
+			LOGGER.error("Exception occured while registration", e);
 			response.setStatus(500);
 		}
 

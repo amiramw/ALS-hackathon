@@ -24,6 +24,7 @@ import als.model.impl.FormQuestionnaire;
 import als.persistence.dao.IPatientFormDAO;
 import als.util.AppContextFactory;
 import als.util.AppCtx;
+import als.util.HTTPUtil;
 import als.util.QuestionnaireType;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,7 +35,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class QuestionnaireServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger LOGGER = LoggerFactory.getLogger(QuestionnaireServlet.class);
-
 
 	@Override
 	public void init() throws ServletException {
@@ -53,12 +53,10 @@ public class QuestionnaireServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		// 1. get received JSON data from request
+		
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(
 				request.getInputStream()))) {
-			String json = "";
-			if (br != null) {
-				json = br.readLine();
-			}
+			String json = HTTPUtil.bodyToString(br);
 
 			// 2. initiate jackson mapper
 			ObjectMapper mapper = new ObjectMapper();
