@@ -21,38 +21,39 @@ sap.ui.jsview("view.speechMp3", {
             showHomeButton: true
         });
 
-		var micImg = new sap.ui.commons.Image("micImg").addStyleClass("centeredLayout");
-		//micImg.setSrc("images/record.png");
-		micImg.setSrc("images/mic128.png");
-		micImg.addStyleClass("centered");
-		micImg.addStyleClass("size5");
-		micImg.attachPress(function(){
-			that.getController().toggleRecording(this);
-		})
+        var micImg = new sap.ui.commons.Image("micImg").addStyleClass("centeredLayout");
+        micImg.setSrc("images/record.png");
+        micImg.addStyleClass("centered");
+        micImg.addStyleClass("size5");
+        micImg.attachPress(function(){
 
+            that.getController().toggleRecording(this);
+        })
 
-		var headerLayout = new sap.ui.layout.HorizontalLayout({
+        var recordLabel = new sap.m.Label("recordLabel",{"text":"Start recording"});
+
+        var headerLayout = new sap.ui.layout.HorizontalLayout({
 			content: [
-			          new sap.m.Label("",{"text":"Tap record and say the following sentence:"}).addStyleClass("question_title"),
+			          new sap.m.Label("",{"text":"Tap record and say the following sentence:"}).addStyleClass("question_title")
 			          ]
 		}).addStyleClass('questions_header');
 
 		var sentence = new sap.ui.layout.HorizontalLayout({
 			content: [
-			          new sap.m.Label("",{"text":"'The quick brown fox jumps over the lazy dog'"}).addStyleClass("question_title"),
+                navigator.getUserMedia
 			          ]
 		}).addStyleClass('questions_header');
 		
 			
-		var h3 = new sap.ui.layout.VerticalLayout('mic', {content: [headerLayout, sentence, micImg]}
+		var h3 = new sap.ui.layout.VerticalLayout('mic', {content: [headerLayout, sentence, micImg,recordLabel]}
 		).addStyleClass("vizMic"); 
 		
 
         
 		//Temporary image just for testing recorded audio  (remove it!)
-        var link = new sap.ui.core.HTML({content:   " <a id='link_1' href='#'><img width=30% id='downloadImg' src='images/Stop.png'></a>"});
+       var link = new sap.ui.core.HTML({content:   " <a id='link_1' href='#' > test</a>"});
         
-        var temp = new sap.m.Label("",{"text":"Temporary image just for testing recorded audio"});
+       // var temp = new sap.m.Label("",{"text":"Temporary image just for testing recorded audio"});
        
 
         var finishLabel = new sap.m.Label('finish', {
@@ -69,7 +70,7 @@ sap.ui.jsview("view.speechMp3", {
 
 
         var contentLayout = new sap.ui.layout.VerticalLayout('speechContentLayout', {
-            content: [header, h3,link,temp, footer],
+            content: [header, h3,link, footer],
             width: '100%'
         });
 		return contentLayout;

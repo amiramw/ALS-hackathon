@@ -48,12 +48,18 @@ sap.ui.controller("view.speechMp3", {
 
 		  //This function is called when user presses on the image of microphone
 			this.toggleRecording = function(e){
+                var mic = sap.ui.getCore().byId('micImg');
+                var recordLbl  = sap.ui.getCore().byId('recordLabel');
 				if (e.hasStyleClass("recording")) {
 					// stop recording
 					this.stopRecording();
+                    mic.setSrc("images/record.png");
+                    recordLbl.setText("Start recording");
 					e.removeStyleClass("recording");
 				} else {
 					// start recording
+                    mic.setSrc("images/stop.png");
+                    recordLbl.setText("Stop recording");
 					e.addStyleClass("recording");
 					this.startRecording();
 				}
@@ -108,7 +114,7 @@ sap.ui.controller("view.speechMp3", {
                         "optional": []
                     }
                 }, this.startUserMedia, function(e) {
-                    alert('Error getting audio');
+                    alert('Error getting audio' );
                     console.log(e);
                 });
 
