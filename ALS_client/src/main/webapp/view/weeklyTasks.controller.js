@@ -7,17 +7,15 @@ sap.ui.controller("view.weeklyTasks", {
 */
 
 	onInit: function() {
-    sap.ui.getCore().byId(sap.ui.core.Fragment.createId(this.getView().sId, 'headerToolbarTitle')).setText('My HealthCare');
-    sap.ui.getCore().byId(sap.ui.core.Fragment.createId(this.getView().sId, 'headerToolbarHomeButton')).setVisible(false);
 
-    //The data for the list
+        //The data for the list
         var aData = { modelData : [
 
-              {iconTaskSource:"sap-icon://task", taskName: "Questionnaire" , dateStatus: "Last:", date : "01/01/2010" , iconStatusSource: "sap-icon://accept"},
-              {iconTaskSource:"sap-icon://microphone", taskName: "Speech" , dateStatus: "Parital:", date : "02/02/2012" , iconStatusSource: "sap-icon://warning"},
-              {iconTaskSource:"sap-icon://edit", taskName: "Handwriting" , dateStatus: "Last:", date : "04/04/2013" , iconStatusSource: ""},
-              {iconTaskSource:"sap-icon://physical-activity", taskName: "Walking" , dateStatus: "Last:", date : "05/05/2013" , iconStatusSource: ""},
-              {iconTaskSource:"sap-icon://menu2", taskName: "Climbing Stairs" , dateStatus: "Parital:", date : "06/06/2013" , iconStatusSource: ""}
+              {iconTaskSource:"images/Questionnaire.png", taskName: "Questionnaire" , dateStatus: "5 Days ago", iconStatusSource: "images/openTask.png"},
+              {iconTaskSource:"images/Speech.png", taskName: "Speech" , dateStatus: "A week ago", iconStatusSource: "images/CompletedTask.png"},
+              {iconTaskSource:"images/Handwriting.png", taskName: "Handwriting" , dateStatus: "3 Days ago",  iconStatusSource: "images/CompletedTask.png"},
+              {iconTaskSource:"images/Walking.png", taskName: "Walking" , dateStatus: "4 Days ago",  iconStatusSource: "images/CompletedTask.png"},
+              {iconTaskSource:"images/climbingStairs.png", taskName: "Climbing Stairs" , dateStatus: "", iconStatusSource: "images/CompletedTask.png"}
 
             ]};
 
