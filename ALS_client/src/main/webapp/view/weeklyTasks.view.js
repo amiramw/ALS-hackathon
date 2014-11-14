@@ -18,7 +18,7 @@ sap.ui.jsview("view.weeklyTasks", {
 
         //header
         var header = sap.ui.jsfragment(this.getId(), 'HeaderToolbar', {
-            title: 'My HealthCare',
+            title: alsApp.config.APP_NAME,
             showHomeButton: false
         });
 

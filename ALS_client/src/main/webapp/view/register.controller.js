@@ -35,7 +35,7 @@ sap.ui.controller("view.register", {
             }
 
             var data = {
-                "email": view.email,
+                "email": alsApp.config.email,
                 "firstName": firstName,
                 "lastName": lastName,
                 "birthday": Date.UTC(yearOfBirth, 0, 1),
@@ -47,14 +47,13 @@ sap.ui.controller("view.register", {
                 url: alsApp.SERVER_URL + '/register',
                 data: JSON.stringify(data),
                 success: function() {
-                    alsApp.getPage('loginPage').setEmail(view.email);
                     sap.m.MessageBox.alert('Thank you for registering! You can now login using your email', {
                         title: 'Registration successful'
                     });
                     alsApp.back();
                 },
                 error: function() {
-                    sap.m.MessageBox.alert('An error occured during registration', {
+                    sap.m.MessageBox.alert('An error occurred during registration', {
                         title: 'Registration failed'
                     });
                 }
