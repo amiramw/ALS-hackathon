@@ -19,12 +19,26 @@ sap.ui.jsview("view.questions", {
 
                 var answers = oContext.getProperty("answers") || [];
                 var index = parseInt(oContext.getPath().replace("/questions/",""), 10);
-                var nextIndex = 0;
-                var i;
+                var nextIndex = 0,
+                    prevIndex = 0;
+                var i,
+                    isLast = false,
+                    isFirst = true;
 
                 if (index + 1 < questions.length) {
                     nextIndex = index + 1;
+                    isLast = false;
+                } else {
+                    isLast = true;
                 }
+
+                if (index - 1 >= 0){
+                    prevIndex = index - 1;
+                    isFirst = false;
+                } else {
+                    isFirst = true;
+                }
+
 
                 var pageId = oContext.getProperty("id");
                 
@@ -83,14 +97,34 @@ sap.ui.jsview("view.questions", {
                     }));
                 }
 
-                box.addItem(new sap.m.Input());
+                box.addItem(new sap.m.Input({
+                    placeholder: "Remarks"
+                })).addStyleClass("remarks");
 
                 page.addContent(box);
+                var nextButton = {
+                        icon: isLast ? "images/finishTask.png" : "images/next.png",
+                        text: isLast ? "Finish" : "",
+                        press: function(){
+                            if (isLast){
+                                // Send answers to API here
+                            } else {
+                                that.nav.to("page_" + questions[nextIndex].id);
+                            }
+
+                        }
+                    },
+                    prevButton = {
+                        enabled: !isFirst,
+                        icon: "images/previous.png",
+                        press: function(){
+                            that.nav.back("page_" + questions[prevIndex].id);
+                        }
+                    };
 
                 var footer = new sap.ui.layout.HorizontalLayout({
-                    content: [new sap.m.Button({text:"Next", press: function(){
-                        that.nav.to("page_" + questions[nextIndex].id);
-                    }}) ]
+                    content: [new sap.m.Button(prevButton).addStyleClass(isFirst ? "no_question" : "prev_question"),
+                        new sap.m.Button(nextButton).addStyleClass(isLast ? "finish_question" : "next_question") ]
                 }).addStyleClass('footer').addStyleClass('question_footer');
 
                 page.addContent(footer);

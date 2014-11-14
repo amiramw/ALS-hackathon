@@ -466,3 +466,43 @@ Input:-ms-input-placeholder {
     font-family: Designio;
     font-size: 1.7em;
 }
+
+.no_question, .prev_question, .next_question, .finish_question{
+    -background-color: transparent !important;
+    position: absolute;
+    display: inline-block;
+}
+
+.no_question>div, .prev_question>div, .next_question>div, .finish_question>div{
+    outline: none !important;
+    background-color: transparent !important;
+    background-image: none;
+    color: white;
+    border: none;
+}
+
+.no_question, .prev_question {
+    left: 1em;
+}
+
+.next_question {
+    right: 1em;
+}
+
+.finish_question{
+    right: 1em;
+}
+
+.no_question img, .prev_question img, .next_question img{
+    width: 15px;
+    height: 37px;
+}
+
+.finish_question img{
+    width: 29px;
+    height: 37px;
+}
+
+.remarks .sapMFlexItem:last-child {
+    margin: 0 1em 0 !important;
+}
