@@ -47,7 +47,8 @@ sap.ui.controller("view.register", {
                 url: alsApp.SERVER_URL + '/register',
                 data: JSON.stringify(data),
                 success: function() {
-                    sap.m.MessageBox.alert('Thank you for registering! Please login using your email', {
+                    alsApp.getPage('loginPage').setEmail(view.email);
+                    sap.m.MessageBox.alert('Thank you for registering! You can now login using your email', {
                         title: 'Registration successful'
                     });
                     alsApp.back();
@@ -58,7 +59,6 @@ sap.ui.controller("view.register", {
                     });
                 }
             });
-            //alsApp.to("weeklyTasksPage");
         }
         else {
             sap.m.MessageBox.alert('Please fill in all the details before submitting', {

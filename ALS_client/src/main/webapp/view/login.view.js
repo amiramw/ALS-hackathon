@@ -1,6 +1,7 @@
 sap.ui.jsview("view.login", {
 
     email: localStorage.getItem('alsEmailRegister'),
+    emailRegisterInput: null,
 
     getControllerName: function() {
         return "view.login";
@@ -16,7 +17,7 @@ sap.ui.jsview("view.login", {
             height: '3em'
         }).addStyleClass('centeredLayout');
 
-        var emailRegisterInput = new sap.m.Input('emailRegisterInput', {
+        this.emailRegisterInput = new sap.m.Input('emailRegisterInput', {
             placeholder: 'Email',
             value: localStorage.getItem('alsEmailRegister'),
             width: '17em',
@@ -32,7 +33,7 @@ sap.ui.jsview("view.login", {
         }).addStyleClass('centeredLayout').attachBrowserEvent('click', controller.onRegister);
 
         var registerDetailsLayout = new sap.ui.layout.VerticalLayout('registerDetailsLayout', {
-            content: [emailRegisterInput, firstUseLabel]
+            content: [this.emailRegisterInput, firstUseLabel]
         }).addStyleClass('centeredLayout');
 
         var disclaimerLabel = new sap.m.Label('disclaimerLabel', {
@@ -58,6 +59,12 @@ sap.ui.jsview("view.login", {
         });
 
         return layout;
+    },
+
+    setEmail: function(email) {
+        this.email = email;
+        localStorage.setItem('alsEmailRegister', this.email);
+        this.emailRegisterInput.setValue(email);
     }
 
 });
