@@ -16,7 +16,49 @@ sap.ui.controller("view.register", {
         }
         else if (view.email !== "" && view.email !== null && view.yearOfBirth !== null && view.yearOfBirth !== "" &&
             view.gender !== null && view.onsetMonth !== null && view.onsetYear !== null) {
-            alsApp.to("weeklyTasksPage");
+
+            var firstName, lastName;
+            if (view.username === "" || view.username === null) {
+                firstName = "";
+                lastName = "";
+            }
+            else {
+                var spaceIndex = view.username.lastIndexOf(' ');
+                if (spaceIndex === -1) {
+                    firstName = view.username;
+                    lastName = "";
+                }
+                else {
+                    firstName = view.username.substring(0, spaceIndex);
+                    lastName = view.username.substring(spaceIndex + 1);
+                }
+            }
+
+            var data = {
+                "email": view.email,
+                "firstName": firstName,
+                "lastName": lastName,
+                "birthday": Date.UTC(yearOfBirth, 0, 1),
+                "gender": view.gender === "Male" ? 0 : 1,
+                "diagnoseDate": Date.UTC(view.onsetYear, new Date(Date.parse(view.onsetMonth + ' 1, 2014')).getMonth(), 1)
+            };
+            $.ajax({
+                type: 'POST',
+                url: alsApp.SERVER_URL + '/register',
+                data: JSON.stringify(data),
+                success: function() {
+                    sap.m.MessageBox.alert('Thank you for registering! Please login using your email', {
+                        title: 'Registration successful'
+                    });
+                    alsApp.back();
+                },
+                error: function() {
+                    sap.m.MessageBox.alert('An error occured during registration', {
+                        title: 'Registration failed'
+                    });
+                }
+            });
+            //alsApp.to("weeklyTasksPage");
         }
         else {
             sap.m.MessageBox.alert('Please fill in all the details before submitting', {

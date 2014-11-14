@@ -39,7 +39,7 @@ sap.ui.jsview("view.register", {
             width: '17em',
             rows: 1,
             liveChange: function(event) {
-                that.username = event.getSource().getValue();
+                that.username = event.getSource().getValue().trim();
                 localStorage.setItem('alsUsername', that.username);
             }
         });
