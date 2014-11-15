@@ -401,6 +401,10 @@ Input:-ms-input-placeholder {
     height: 100%;
 }
 
+#question_layout section{
+    background-color: #e6e6e6;
+}
+
 #question_layout .sapUiVltCell.sapuiVltCell:nth-child(2){
     height: 100%;
 }
@@ -414,6 +418,11 @@ Input:-ms-input-placeholder {
 .questions_header {
     background-color: #15bfcb;
     width: 100%;
+    height: 4em;
+}
+
+.questions_header>div{
+    vertical-align: bottom;
 }
 
 .questions_header .sapMLabel{
@@ -482,15 +491,15 @@ Input:-ms-input-placeholder {
 }
 
 .no_question, .prev_question {
-    left: 1em;
+    left: 5em;
 }
 
 .next_question {
-    right: 1em;
+    right: 5em;
 }
 
 .finish_question{
-    right: 1em;
+    right: 5em;
 }
 
 .no_question img, .prev_question img, .next_question img{
@@ -504,5 +513,46 @@ Input:-ms-input-placeholder {
 }
 
 .remarks .sapMFlexItem:last-child {
-    margin: 0 1em 0 !important;
+    padding: 0 1em 0 !important;
+    background-color: #e6e6e6;
+    border-bottom: 0;
+}
+
+.remarks .sapMFlexItem{
+    height: 5em;
+}
+
+.remarks .sapMFlexItem:first-child {
+   height: 4em;
+}
+
+.remarks label {
+    color: #4d4d4d;
+    font-weight: lighter;
+}
+
+.remarks .sapMFlexItem .sapMRbBOut{
+    background-color: transparent;
+    border: 1px solid #4d4d4d;
+}
+
+.remarks .sapMFlexItem .sapMPointer,.remarks .sapMFlexItem .sapMInput {
+    padding-top: 1em;
+}
+
+.remarks .sapMFlexItem{
+    border-bottom: 1px solid #cccccc;
+    background-color: #f2f2f2;
+}
+
+.remarks .sapMFlexItem:last-child .sapMInputBasePlaceholder{
+    font-weight: lighter;
+    font-style: normal;
+    font-family: Segue UI;
+    color: #808080;
+}
+
+.remarks .sapMFlexItem:last-child .sapMInputBaseInner{
+    border-radius: 17px;
+    border: 1px solid #808080;
 }
