@@ -1,8 +1,4 @@
-/**
- * Created by I068738 on 09/11/2014.
- */
 sap.ui.jsview("view.completed", {
-
 
     getControllerName: function() {
         return "view.completed";
@@ -10,11 +6,11 @@ sap.ui.jsview("view.completed", {
 
     createContent: function(controller){
         var completedLabel = new sap.m.Label('completedLabel', {
-            text: "back to menu",
+            text: "Back to menu",
             width: "100%",
             textAlign: 'Center'
         }).attachBrowserEvent('click',function(){
-                sap.ui.getCore().byId("alsApp").to('weeklyTasksPage');
+                alsApp.to('weeklyTasksPage');
             });
 
         var completedImage = new sap.m.Image('ribbonIcon', {
@@ -30,6 +26,3 @@ sap.ui.jsview("view.completed", {
         return layout;
     }
 });
-/**
- * Created by I068738 on 09/11/2014.
- */

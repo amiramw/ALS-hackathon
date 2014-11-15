@@ -114,7 +114,7 @@ sap.ui.jsview("view.register", {
         }).setSelectedKey(this.onsetMonth);
 
         var onsetYears = [];
-        for (var i = new Date().getFullYear(); i >= 1900; i--) {
+        for (var i = new Date().getFullYear(); i >= 1970; i--) {
             onsetYears.push(new sap.ui.core.Item({key: i, text: i}));
         }
 

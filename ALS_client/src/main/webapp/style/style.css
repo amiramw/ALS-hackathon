@@ -185,12 +185,14 @@ Input:-ms-input-placeholder {
 
 .sapMLabel#disclaimerLabel {
     margin-top: 15em;
+    margin-bottom: 1em;
     font-size: 1em;
     font-weight: 100;
 }
 
 .sapMLabel#alreadyRegisteredLabel {
     margin-top: 3em;
+    margin-bottom: 1em;
     font-size: 1em;
     font-weight: 100;
 }
@@ -431,6 +433,9 @@ Input:-ms-input-placeholder {
 
 #completedPage {
     background-image: url('../images/BG.png');
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #completedPage #ribbonIcon {
@@ -441,8 +446,12 @@ Input:-ms-input-placeholder {
 }
 
 #completedPage #completedLabel{
+    position: absolute;
+    bottom: 5em;
     color:#ffffff;
     text-decoration: underline;
+    font-weight: 100;
+    font-size: 1.5em;
 }
 
 #speechPage #finishBtn {
