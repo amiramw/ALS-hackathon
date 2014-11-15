@@ -536,6 +536,21 @@ Input:-ms-input-placeholder {
     border: 1px solid #4d4d4d;
 }
 
+.question-selected .remarks .sapMFlexItem .sapMRbBOut{
+    border-color: white;
+}
+.question-selected .sapMRbBInn{
+    background-color: white;
+}
+
+.question-selected.sapMFlexItem .sapMRbBOut{
+    border: 1px solid #ffffff;
+}
+
+.question-selected label{
+    color: white;
+}
+
 .remarks .sapMFlexItem .sapMPointer,.remarks .sapMFlexItem .sapMInput {
     padding-top: 1em;
 }
@@ -543,6 +558,10 @@ Input:-ms-input-placeholder {
 .remarks .sapMFlexItem{
     border-bottom: 1px solid #cccccc;
     background-color: #f2f2f2;
+}
+
+.question-selected.sapMFlexItem{
+    background-color: #ff745c;
 }
 
 .remarks .sapMFlexItem:last-child .sapMInputBasePlaceholder{

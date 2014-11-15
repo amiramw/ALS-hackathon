@@ -93,6 +93,9 @@ sap.ui.jsview("view.questions", {
                             }
 
                             this.getModel("resModel").setData(res);
+
+                            $('.sapMFlexItem').removeClass('question-selected');
+                            $('#' + e.getSource().sId).parent().addClass('question-selected');
                         }
                     }));
                 }
