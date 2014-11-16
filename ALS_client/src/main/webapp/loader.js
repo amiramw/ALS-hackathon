@@ -35,7 +35,7 @@ var alsApp = new sap.m.App("alsApp",{
 });
 
 alsApp.config = {
-    APP_NAME: "ALS Application",
+    APP_NAME: "My Healthcare",
     SERVER_URL: 'http://iltlvwssc793.emea.global.corp.sap:8080/ALS_backend',
     RELATIVE_SERVER_URL: '/ALS_backend/test-me',
     email: localStorage.getItem('alsEmail')
