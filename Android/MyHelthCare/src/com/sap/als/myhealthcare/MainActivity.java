@@ -15,7 +15,8 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
-    private WebView mWebview ;
+    private static final String START_URL = "http://iltlvwssc793.emea.global.corp.sap:8080/ALS_client/";
+	private WebView mWebview;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        mWebview .loadUrl("http://www.google.com");
+        mWebview .loadUrl(START_URL);
         setContentView(mWebview);
 
     }
