@@ -33,6 +33,13 @@ var alsApp = new sap.m.App("alsApp",{
     initialPage: "loginPage"
 });
 
+alsApp.config = {
+    APP_NAME: "ALS Application",
+    SERVER_URL: 'http://iltlvwssc793.emea.global.corp.sap:8080/ALS_backend',
+    RELATIVE_SERVER_URL: '/ALS_backend/test-me',
+    email: localStorage.getItem('alsEmail')
+};
+
 var loginPage = sap.ui.view({
     id:"loginPage",
     viewName:"view.login",
@@ -76,15 +83,12 @@ var handwritingpage = sap.ui.view({
 });
 alsApp.addPage(handwritingpage);
 
-
-/*var speech = sap.ui.view({
+var speech = sap.ui.view({
 	    id:"speechPage",
 	    viewName:"view.speechMp3",
 	    type:sap.ui.core.mvc.ViewType.JS
 	});
-alsApp.addPage(speech);*/
-
-
+alsApp.addPage(speech);
 
 var completedPage = sap.ui.view({
     id:"completedPage",
@@ -93,8 +97,11 @@ var completedPage = sap.ui.view({
 });
 alsApp.addPage(completedPage);
 
-alsApp.SERVER_URL = 'http://iltlvwssc793.emea.global.corp.sap:8080/ALS_backend';
-
-alsApp.RELATIVE_SERVER_URL = '/ALS_backend/test-me';
+alsApp.setEmail = function(email) {
+    alsApp.config.email = email;
+    localStorage.setItem('alsEmail', email);
+    alsApp.getPage('loginPage').setEmail(email);
+    alsApp.getPage('registerPage').setEmail(email);
+}
 
 alsApp.placeAt("content");

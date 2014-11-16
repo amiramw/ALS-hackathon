@@ -7,14 +7,21 @@ sap.ui.controller("view.register", {
         var view = sap.ui.getCore().byId('registerPage');
         var yearOfBirth = parseInt(view.yearOfBirth);
         var thisYear = new Date().getFullYear();
+        var emailValidation = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z]{2,4})+$/;
 
-        if (isNaN(yearOfBirth) || yearOfBirth < 1900 || yearOfBirth > thisYear) {
-            sap.m.MessageBox.alert('Please enter a year of birth between 1900 and ' + new Date().getFullYear(), {
+        if (!emailValidation.test(alsApp.config.email)) {
+            sap.m.MessageBox.alert('Please enter a valid email address', {
                     title: 'Details Missing'
                 }
             );
         }
-        else if (view.email !== "" && view.email !== null && view.yearOfBirth !== null && view.yearOfBirth !== "" &&
+        else if (isNaN(yearOfBirth) || yearOfBirth < 1900 || yearOfBirth > thisYear) {
+            sap.m.MessageBox.alert('Please enter a valid year of birth', {
+                    title: 'Details Missing'
+                }
+            );
+        }
+        else if (view.yearOfBirth !== null && view.yearOfBirth !== "" &&
             view.gender !== null && view.onsetMonth !== null && view.onsetYear !== null) {
 
             var firstName, lastName;
@@ -35,7 +42,7 @@ sap.ui.controller("view.register", {
             }
 
             var data = {
-                "email": view.email,
+                "email": alsApp.config.email,
                 "firstName": firstName,
                 "lastName": lastName,
                 "birthday": Date.UTC(yearOfBirth, 0, 1),
@@ -44,21 +51,20 @@ sap.ui.controller("view.register", {
             };
             $.ajax({
                 type: 'POST',
-                url: alsApp.SERVER_URL + '/register',
+                url: alsApp.config.SERVER_URL + '/register',
                 data: JSON.stringify(data),
                 success: function() {
-                    sap.m.MessageBox.alert('Thank you for registering! Please login using your email', {
+                    sap.m.MessageBox.alert('Thank you for registering! You can now login using your email', {
                         title: 'Registration successful'
                     });
                     alsApp.back();
                 },
                 error: function() {
-                    sap.m.MessageBox.alert('An error occured during registration', {
+                    sap.m.MessageBox.alert('An error occurred during registration', {
                         title: 'Registration failed'
                     });
                 }
             });
-            //alsApp.to("weeklyTasksPage");
         }
         else {
             sap.m.MessageBox.alert('Please fill in all the details before submitting', {

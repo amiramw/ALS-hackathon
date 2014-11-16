@@ -1,12 +1,12 @@
 sap.ui.jsview("view.register", {
 
     username: null,
-    email: null,
     gender: null,
     yearOfBirth: null,
     onsetMonth: null,
     onsetYear: null,
 
+    emailRegisterInput: null,
     maleRadioButton: null,
     femaleRadioButton: null,
 
@@ -16,7 +16,6 @@ sap.ui.jsview("view.register", {
 
     createContent: function(controller){
         this.username = localStorage.getItem('alsUsername');
-        this.email = localStorage.getItem('alsEmail');
         this.gender = localStorage.getItem('alsGender');
         this.yearOfBirth = localStorage.getItem('alsYearOfBirth');
         this.onsetMonth = localStorage.getItem('alsOnsetMonth') || "January";
@@ -37,21 +36,18 @@ sap.ui.jsview("view.register", {
             placeholder: 'Name (optional)',
             value: localStorage.getItem('alsUsername'),
             width: '17em',
-            rows: 1,
             liveChange: function(event) {
                 that.username = event.getSource().getValue().trim();
                 localStorage.setItem('alsUsername', that.username);
             }
         });
 
-        var emailInput = new sap.m.Input('emailInput', {
+        this.emailRegisterInput = new sap.m.Input('emailRegisterInput', {
             placeholder: 'Email',
             value: localStorage.getItem('alsEmail'),
             width: '17em',
-            rows: 1,
             liveChange: function(event) {
-                that.email = event.getSource().getValue();
-                localStorage.setItem('alsEmail', that.email);
+                alsApp.setEmail(event.getSource().getValue());
             }
         });
 
@@ -59,7 +55,6 @@ sap.ui.jsview("view.register", {
             placeholder: 'Year of birth',
             value: localStorage.getItem('alsYearOfBirth'),
             width: '17em',
-            rows: 1,
             type: 'Number',
             liveChange: function(event) {
                 that.yearOfBirth = event.getSource().getValue();
@@ -119,7 +114,7 @@ sap.ui.jsview("view.register", {
         }).setSelectedKey(this.onsetMonth);
 
         var onsetYears = [];
-        for (var i = new Date().getFullYear(); i >= 1900; i--) {
+        for (var i = new Date().getFullYear(); i >= 1970; i--) {
             onsetYears.push(new sap.ui.core.Item({key: i, text: i}));
         }
 
@@ -142,7 +137,7 @@ sap.ui.jsview("view.register", {
         }).attachBrowserEvent('click', controller.onAlreadyRegistered);
 
         var detailsLayout = new sap.ui.layout.VerticalLayout('detailsLayout', {
-            content: [usernameInput, emailInput, yearOfBirthInput, genderLayout, dateOfOnsetLabel, dateOfOnsetSelectLayout, alreadyRegisteredLabel]
+            content: [usernameInput, this.emailRegisterInput, yearOfBirthInput, genderLayout, dateOfOnsetLabel, dateOfOnsetSelectLayout, alreadyRegisteredLabel]
         }).addStyleClass('centeredLayout');
 
         var registerFooterLabel = new sap.m.Label('registerFooterLabel', {
@@ -162,6 +157,10 @@ sap.ui.jsview("view.register", {
         });
 
         return layout;
+    },
+
+    setEmail: function(email) {
+        this.emailRegisterInput.setValue(email);
     }
 
 });

@@ -79,7 +79,7 @@ sap.ui.controller("view.speechMp3", {
 			alert("before ajax");
 			$.ajax({
 				type: 'POST',
-				url: alsApp.RELATIVE_SERVER_URL,
+				url: alsApp.config.RELATIVE_SERVER_URL,
 				data: {
 					data: fd, 
 					task: "speech"

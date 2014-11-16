@@ -169,7 +169,7 @@ sap.ui.jsview("view.handwriting", {
 				//TODO: send the result to the server here
 				$.ajax({
 					type: "POST",
-					url: alsApp.RELATIVE_SERVER_URL,
+					url: alsApp.config.RELATIVE_SERVER_URL,
 					data: {
 						data: JSON.stringify(result),
 						task: "writing"
