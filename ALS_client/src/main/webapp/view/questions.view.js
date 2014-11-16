@@ -39,9 +39,7 @@ sap.ui.jsview("view.questions", {
                     isFirst = true;
                 }
 
-
                 var pageId = oContext.getProperty("id");
-                
 
                 var page = new sap.m.Page("page_" + pageId, {
                     showHeader: false
@@ -51,7 +49,7 @@ sap.ui.jsview("view.questions", {
                 var headerLayout = new sap.ui.layout.HorizontalLayout({
                     content: [
                         new sap.m.Label("",{"text":"{title}"}).addStyleClass("question_title"),
-                        new sap.m.Label({"text": (index + 1) + "/" + questions.length}).addStyleClass("page_num")
+                        new sap.m.Label({"text": (index + 1) + " / " + questions.length}).addStyleClass("page_num")
                     ]
                 }).addStyleClass('questions_header');
 
@@ -59,17 +57,22 @@ sap.ui.jsview("view.questions", {
 
                 for (i = 0; i < answers.length; i++) {
                     box.addItem(new sap.m.RadioButton({
+                        groupName: pageId,
                         text: answers[i].title,
-                        customData: [new sap.ui.core.CustomData({
-                            key: 'answerId',
-                            value: answers[i].id
-                        }),
-                        new sap.ui.core.CustomData({
-                            key: 'pageId',
-                            value: pageId
-                        })]
-                            ,
+                        customData: [
+                            new sap.ui.core.CustomData({
+                                key: 'answerId',
+                                value: answers[i].id
+                            }),
+                            new sap.ui.core.CustomData({
+                                key: 'pageId',
+                                value: pageId
+                            })
+                        ],
                         select: function(e){
+                            e.getSource().$().closest('.sapMFlexBox').children('.sapMFlexItem.selected').removeClass('selected');
+                            e.getSource().$().closest('.sapMFlexItem').addClass('selected');
+
                             var data = this.getCustomData();
                             var answer = {};
                             var i;
@@ -104,7 +107,7 @@ sap.ui.jsview("view.questions", {
                 page.addContent(box);
                 var nextButton = {
                         icon: isLast ? "images/finishTask.png" : "images/next.png",
-                        text: isLast ? "Finish" : "",
+                        width: '50%',
                         press: function(){
                             if (isLast){
                                 // Send answers to API here
@@ -117,6 +120,7 @@ sap.ui.jsview("view.questions", {
                     prevButton = {
                         enabled: !isFirst,
                         icon: "images/previous.png",
+                        width: '50%',
                         press: function(){
                             that.nav.back("page_" + questions[prevIndex].id);
                         }
@@ -131,7 +135,6 @@ sap.ui.jsview("view.questions", {
                 return page;
             }
         });
-
 
         var header = sap.ui.jsfragment(this.getId(), 'HeaderToolbar', {
             title: 'Questionnaire',

@@ -30,7 +30,7 @@ sap.ui.jsfragment('FooterToolbar', {
 });
 
 var alsApp = new sap.m.App("alsApp",{
-    initialPage:"loginPage"
+    initialPage: "questionsPage"
 });
 
 var loginPage = sap.ui.view({

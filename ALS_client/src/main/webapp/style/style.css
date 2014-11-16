@@ -327,14 +327,7 @@ Input:-ms-input-placeholder {
     height: 100%;
 }
 
-/********** Questions page **********/
-
-.question-view {
-    height: 100%;
-}
-
 /********** Submission Alert page **********/
-
 
 #submissionAlertPage .sapMLabel {
     color: black;
@@ -397,6 +390,43 @@ Input:-ms-input-placeholder {
     padding-bottom: 2em;
 }
 
+/********** Completed page **********/
+
+#completedPage {
+    background-image: url('../images/BG.png');
+}
+
+#completedPage #ribbonIcon {
+    margin-top: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+}
+
+#completedPage #completedLabel{
+    color:#ffffff;
+    text-decoration: underline;
+}
+
+/********** Speech page **********/
+
+#speechPage #finishBtn {
+    position: absolute;
+    bottom: 0;
+    background-color: #15BFCB;
+    border-top: 1px solid white;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    font-family: Designio;
+    font-size: .7em;
+}
+
+/********** Questions page **********/
+
+.question-view {
+    height: 100%;
+}
+
 #question_layout {
     height: 100%;
 }
@@ -418,16 +448,19 @@ Input:-ms-input-placeholder {
 .questions_header {
     background-color: #15bfcb;
     width: 100%;
-    height: 4em;
+    height: 3em;
 }
 
 .questions_header>div{
-    vertical-align: bottom;
+    vertical-align: middle;
 }
 
 .questions_header .sapMLabel{
     position: absolute;
+    top: 0.75em;
+    font-size: 1em;
     color: #FFF;
+    font-weight: normal;
 }
 
 .questions_header .sapMLabel.page_num{
@@ -436,33 +469,6 @@ Input:-ms-input-placeholder {
 
 .questions_header .sapMLabel.question_title{
     left: 1em;
-}
-
-#completedPage {
-    background-image: url('../images/BG.png');
-}
-
-#completedPage #ribbonIcon {
-    margin-top: 10em;
-    margin-left: auto;
-    margin-right: auto;
-    display: table;
-}
-
-#completedPage #completedLabel{
-    color:#ffffff;
-    text-decoration: underline;
-}
-
-#speechPage #finishBtn {
-    position: absolute;
-    bottom: 0;
-    background-color: #15BFCB;
-    border-top: 1px solid white;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    font-family: Designio;
-    font-size: .7em;
 }
 
 .finishLayout {
@@ -490,26 +496,24 @@ Input:-ms-input-placeholder {
     border: none;
 }
 
-.no_question, .prev_question {
-    left: 5em;
+.no_question,
+.prev_question {
+    left: 0em;
 }
 
-.next_question {
-    right: 5em;
-}
-
-.finish_question{
-    right: 5em;
+.next_question,
+.finish_question {
+    border-left: 2px solid white;
+    right: 0em;
 }
 
 .no_question img, .prev_question img, .next_question img{
-    width: 15px;
-    height: 37px;
+    width: initial;
 }
 
 .finish_question img{
-    width: 29px;
-    height: 37px;
+    width: 4em;
+    margin-top: 0.2em;
 }
 
 .remarks .sapMFlexItem:last-child {
@@ -519,16 +523,20 @@ Input:-ms-input-placeholder {
 }
 
 .remarks .sapMFlexItem{
-    height: 5em;
+    height: 4em;
 }
 
 .remarks .sapMFlexItem:first-child {
-   height: 4em;
+   height: 3em;
 }
 
 .remarks label {
     color: #4d4d4d;
-    font-weight: lighter;
+    font-weight: 100;
+    white-space: pre-wrap;
+    line-height: 1.3em;
+    height: 100%;
+    vertical-align: middle;
 }
 
 .remarks .sapMFlexItem .sapMRbBOut{
@@ -536,8 +544,13 @@ Input:-ms-input-placeholder {
     border: 1px solid #4d4d4d;
 }
 
-.remarks .sapMFlexItem .sapMPointer,.remarks .sapMFlexItem .sapMInput {
-    padding-top: 1em;
+.remarks .sapMFlexItem .sapMPointer {
+    padding-top: 0.5em;
+    width: 100%;
+}
+
+.remarks .sapMFlexItem .sapMInput {
+    padding-top: 0.7em;
 }
 
 .remarks .sapMFlexItem{
@@ -546,13 +559,35 @@ Input:-ms-input-placeholder {
 }
 
 .remarks .sapMFlexItem:last-child .sapMInputBasePlaceholder{
-    font-weight: lighter;
+    font-weight: 100;
     font-style: normal;
     font-family: Segue UI;
     color: #808080;
 }
 
 .remarks .sapMFlexItem:last-child .sapMInputBaseInner{
-    border-radius: 17px;
+    border-radius: 1em;
     border: 1px solid #808080;
+}
+
+.remarks .sapMRbSel .sapMRbBInn {
+    background-color: white;
+}
+
+.remarks .sapMFlexItem.selected {
+    background-color: #FF745C;
+}
+
+.remarks .sapMFlexItem.selected label {
+    color: white;
+}
+
+.remarks .sapMFlexItem.selected .sapMRbBOut {
+    border-color: white;
+}
+
+.remarks .sapMPointer label {
+    margin-top: -0.75em;
+    margin-right: 4em;
+    font-size: 1em;
 }
