@@ -71,7 +71,23 @@ sap.ui.controller("view.weeklyTasks", {
                 return lastSubmittedTasks[i].lastSubmittedDate;
             }
         }
+        if (path ==="/modelData/1")
+        {
+            alsApp.to("speechPage");
+        }
+        if (path ==="/modelData/2")
+            alsApp.to("writingPage");
         return -1;
+        if (path ==="/modelData/1")
+        {
+            if(navigator.userAgent.indexOf("Chrome") == -1 ) {
+                alert('This browser does no support sound recording');
+                return;
+            }
+            alsApp.to("speechPage");
+        }
+        if (path ==="/modelData/2")
+            alsApp.to("writingPage");
     }
 
 });
