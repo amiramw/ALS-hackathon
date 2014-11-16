@@ -50,15 +50,17 @@ sap.ui.controller("view.speechMp3", {
 			this.toggleRecording = function(e){
                 var mic = sap.ui.getCore().byId('micImg');
                 var recordLbl  = sap.ui.getCore().byId('recordLabel');
+                var sentenceRecorded  = sap.ui.getCore().byId('sentenceRecordedLbl');
 				if (e.hasStyleClass("recording")) {
 					// stop recording
 					this.stopRecording();
-                    mic.setSrc("images/record.png");
+                    mic.setSrc("images/Record.png");
                     recordLbl.setText("Start recording");
+                    sentenceRecorded.setVisible(true);
 					e.removeStyleClass("recording");
 				} else {
 					// start recording
-                    mic.setSrc("images/stop.png");
+                    mic.setSrc("images/Stop.png");
                     recordLbl.setText("Stop recording");
 					e.addStyleClass("recording");
 					this.startRecording();
