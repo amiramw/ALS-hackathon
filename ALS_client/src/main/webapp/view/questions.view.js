@@ -107,7 +107,7 @@ sap.ui.jsview("view.questions", {
                 page.addContent(box);
                 var nextButton = {
                         icon: isLast ? "images/finishTask.png" : "images/next.png",
-                        width: '50%',
+                        width: '48%',
                         press: function(){
                             if (isLast){
                                 // Send answers to API here
@@ -120,7 +120,7 @@ sap.ui.jsview("view.questions", {
                     prevButton = {
                         enabled: !isFirst,
                         icon: "images/previous.png",
-                        width: '50%',
+                        width: '48%',
                         press: function(){
                             that.nav.back("page_" + questions[prevIndex].id);
                         }

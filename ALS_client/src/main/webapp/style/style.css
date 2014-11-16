@@ -536,7 +536,6 @@ Input:-ms-input-placeholder {
     color: #4d4d4d;
     font-weight: 100;
     white-space: pre-wrap;
-    line-height: 1.3em;
     height: 100%;
     vertical-align: middle;
 }
