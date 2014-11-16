@@ -13,7 +13,8 @@ sap.ui.jsview("view.login", {
 
         var appLogoIcon = new sap.m.Image('appLogoIcon', {
             src: 'images/appLogo.png',
-            height: '3em'
+            height: '3em',
+            densityAware: false
         }).addStyleClass('centeredLayout');
 
         this.emailInput = new sap.m.Input('emailInput', {

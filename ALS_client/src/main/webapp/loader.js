@@ -5,6 +5,7 @@ sap.ui.jsfragment('HeaderToolbar', {
     createContent: function(params) {
         var homeButton = new sap.m.Image(this.createId('headerToolbarHomeButton'), {
             src: 'images/homeWhite.png',
+            densityAware: false,
             height: '2em',
             visible: params.showHomeButton,
             press: function() {

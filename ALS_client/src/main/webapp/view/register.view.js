@@ -25,7 +25,8 @@ sap.ui.jsview("view.register", {
 
         var appLogoIconRegister = new sap.m.Image('appLogoIconRegister', {
             src: 'images/appLogo.png',
-            height: '3em'
+            height: '3em',
+            densityAware: false
         }).addStyleClass('centeredLayout');
 
         var registerLayout = new sap.ui.layout.HorizontalLayout('registerLayout', {

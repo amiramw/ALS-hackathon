@@ -4,8 +4,7 @@ sap.ui.controller("view.login", {
     },
 
     onLogin: function(oEvent) {
-        var view = sap.ui.getCore().byId('loginPage');
-        if (view.email !== "" && view.email !== null) {
+        if (alsApp.config.email !== "" && alsApp.config.email !== null) {
             alsApp.to("weeklyTasksPage");
         }
         else {

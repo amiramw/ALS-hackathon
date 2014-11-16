@@ -14,7 +14,8 @@ sap.ui.jsview("view.completed", {
             });
 
         var completedImage = new sap.m.Image('ribbonIcon', {
-            src: 'images/Completed.png'
+            src: 'images/Completed.png',
+            densityAware: false
         });
 
 

@@ -292,20 +292,16 @@ Input:-ms-input-placeholder {
     border-top: 2px solid white;
 }
 
-
-/* Setting css for list rows*/
 #weeklyTasksPage .taskIcon.sapMImg {
-    margin: 0.5em;
-    width: 3%;
-    height: 2.5em;
-    align-self: stretch;
-   /* align-content: space-around;*/
+    float: left;
+    width: 3em;
+    margin: 0.7em;
 }
 
 #weeklyTasksPage .task{
-    margin-left: 0.5em;
-    height: 100%;
-    width: auto;
+    float: left;
+    font-size: 1em;
+    margin-top: 1.8em;
 }
 
 #weeklyTasksPage .dateStatus.sapMLabel.sapMLabelMaxWidth.sapUiSelectable
@@ -313,18 +309,19 @@ Input:-ms-input-placeholder {
     text-align: center !important;
     font-size: 0.8em;
     width: 100%;
+    margin-top: 0.2em;
 }
 
 #weeklyTasksPage .statusIcon{
     display: block;
     margin-left: auto;
-    margin-right:auto
+    margin-right: auto
 }
 
 #weeklyTasksPage .layout{
-    width:20%;
-    float:right;
-    margin-top:0.5em;
+    width: 6em;
+    float: right;
+    margin-top: 0.5em;
     margin-bottom: 0.5em;
     height: 100%;
 }
@@ -538,6 +535,7 @@ Input:-ms-input-placeholder {
     white-space: pre-wrap;
     height: 100%;
     vertical-align: middle;
+    line-height: 1.3em;
 }
 
 .remarks .sapMFlexItem .sapMRbBOut{
@@ -564,6 +562,7 @@ Input:-ms-input-placeholder {
     font-style: normal;
     font-family: Segue UI;
     color: #808080;
+    line-height: 3em;
 }
 
 .remarks .sapMFlexItem:last-child .sapMInputBaseInner{

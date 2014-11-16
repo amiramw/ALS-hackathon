@@ -107,6 +107,7 @@ sap.ui.jsview("view.questions", {
                 page.addContent(box);
                 var nextButton = {
                         icon: isLast ? "images/finishTask.png" : "images/next.png",
+                        iconDensityAware: false,
                         width: '48%',
                         press: function(){
                             if (isLast){
@@ -120,6 +121,7 @@ sap.ui.jsview("view.questions", {
                     prevButton = {
                         enabled: !isFirst,
                         icon: "images/previous.png",
+                        iconDensityAware: false,
                         width: '48%',
                         press: function(){
                             that.nav.back("page_" + questions[prevIndex].id);
