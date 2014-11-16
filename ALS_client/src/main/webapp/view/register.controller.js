@@ -54,13 +54,13 @@ sap.ui.controller("view.register", {
                 url: alsApp.config.SERVER_URL + '/register',
                 data: JSON.stringify(data),
                 success: function() {
-                    sap.m.MessageBox.alert('Thank you for registering! You can now login using your email', {
+                    sap.m.MessageBox.alert('Thank you for registering! You can now login using your email.', {
                         title: 'Registration successful'
                     });
                     alsApp.back();
                 },
                 error: function() {
-                    sap.m.MessageBox.alert('An error occurred during registration', {
+                    sap.m.MessageBox.alert('Could not complete registration. Try again later.', {
                         title: 'Registration failed'
                     });
                 }
